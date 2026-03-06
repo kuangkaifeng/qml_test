@@ -406,12 +406,12 @@ ApplicationWindow {
                         property real lastX
                         property real lastY
 
-                        onPressed: {
+                        onPressed: function(mouse){
                             lastX = mouse.x
                             lastY = mouse.y
                         }
 
-                        onPositionChanged: {
+                        onPositionChanged:function(mouse) {
                             if(mouse.buttons === Qt.LeftButton)
                             {
                                 BasicConfig.offsetX -= mouse.x-lastX
