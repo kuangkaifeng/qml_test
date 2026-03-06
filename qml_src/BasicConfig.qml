@@ -71,4 +71,11 @@ QtObject{
     //信号
     signal handleMenuItemClicked(string context)                                                                            //处理下拉选项
     signal handleToolclicked(string context)                                                                                //处理工具栏选项
+
+
+    property real scaleFactor: 1.0
+    property int gridSize: 50
+    property real offsetX: 0
+    property real offsetY: 0
+
 }

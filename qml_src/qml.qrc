@@ -6,5 +6,6 @@
         <file>ToolSelectBar.qml</file>
         <file>LeftToolBar.qml</file>
         <file>GridCanvas.qml</file>
+        <file>Test.qml</file>
     </qresource>
 </RCC>
