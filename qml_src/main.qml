@@ -172,7 +172,7 @@ ApplicationWindow {
         id:selectRect
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top:menuchickBar.bottom
+        anchors.top:parent.top
         height: 40
         border.width: 0
         Rectangle{
@@ -187,7 +187,7 @@ ApplicationWindow {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            height: 0.5
+            height: 1
             color: "gray"
 
         }
