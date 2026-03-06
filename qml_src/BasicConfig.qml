@@ -74,7 +74,8 @@ QtObject{
 
 
     property real scaleFactor: 1.0
-    property int gridSize: 50
+    property int gridSize: 25
+    property int step: 50
     property real offsetX: 0
     property real offsetY: 0
 
