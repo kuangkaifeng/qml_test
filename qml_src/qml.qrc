@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qmldir</file>
+        <file>BasicConfig.qml</file>
+        <file>ToolSelectBar.qml</file>
+        <file>LeftToolBar.qml</file>
+        <file>GridCanvas.qml</file>
+    </qresource>
+</RCC>

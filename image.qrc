@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+        <file>image/ai.png</file>
+        <file>image/align_Bottom.png</file>
+        <file>image/alignLeft.png</file>
+        <file>image/autofocus.png</file>
+        <file>image/back.png</file>
+        <file>image/circle.png</file>
+        <file>image/device.png</file>
+        <file>image/dir.png</file>
+        <file>image/exportIn.png</file>
+        <file>image/home.png</file>
+        <file>image/horizontal-mirror.png</file>
+        <file>image/materialLibrary.png</file>
+        <file>image/new.png</file>
+        <file>image/pen.png</file>
+        <file>image/picture.png</file>
+        <file>image/polygon.png</file>
+        <file>image/rect.png</file>
+        <file>image/save.png</file>
+        <file>image/selectTool.png</file>
+        <file>image/start.png</file>
+        <file>image/stop.png</file>
+        <file>image/toDown.png</file>
+        <file>image/toLeft.png</file>
+        <file>image/toRight.png</file>
+        <file>image/toUp.png</file>
+        <file>image/dirction.png</file>
+        <file>image/edit.png</file>
+    </qresource>
+</RCC>
