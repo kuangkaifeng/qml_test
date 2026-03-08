@@ -19,7 +19,7 @@ QtObject{
     */
     property var fileModel: ["新建", "打开", "保存", "另存为", "导出"]                                                         //文件数据组
     property var editModel: ["撤销","重做","全选","复制","粘贴","查找","替换"]                                                  //编辑数据组
-    property var toolModel: ["选择工具","线条工具","矩形工具","椭圆工具","多边形工具","新建/编辑文本","放置激光头位置"]                 //工具数据组
+    property var toolModel: ["选择工具","直线工具","矩形工具","椭圆工具","多边形工具","新建/编辑文本","激光位置"]                 //工具数据组
     property var windowModel: ["设备管理","切割/图层/设置","移动"]                                                              //窗口数据组
     property var languageModel: ["中文（简体）","English"]                                                                    //语言数据组
     property var helpModel: ["案例讨论社区","支持论坛","官网","在线视频教程","检查更新"]                                            //帮助数据组
@@ -60,6 +60,8 @@ QtObject{
     *
     */
     property color penColor: "black"                                                                                        //笔颜色
+    property int penWidth: 2
+    property string currentTool: ""
     property color btnHoverColor :"#FF504050"                                                                               //菜单栏悬浮颜色
     property color backgropundColor: "#FF525353"
 
@@ -73,10 +75,15 @@ QtObject{
     signal handleToolclicked(string context)                                                                                //处理工具栏选项
 
 
-    property real scaleFactor: 1.0
-    property int gridSize: 25
-    property int step: 50
-    property real offsetX: 0
-    property real offsetY: 0
+    property real scaleFactor: 1.0                                                                                          //画布比例
+    property int gridSize: 25                                                                                               //网格大小
+    property int step: 50                                                                                                   //尺寸个数
+    property real offsetX: 0                                                                                                //x轴偏移
+    property real offsetY: 0                                                                                                //y轴偏移
+    property bool drawing: false                                                                                            //受否画线模式
+    property real startX : 0                                                                                                //直线的开始x位置
+    property real startY: 0                                                                                                 //直线开始的y位置
+    property real previewX: 0                                                                                               //当前鼠标x位置
+    property real previewY: 0                                                                                               //当前鼠标y位置
 
 }

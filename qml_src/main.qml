@@ -11,21 +11,39 @@ ApplicationWindow {
     height: 800
     visible: true
 
+    //关联信号和函数接口
     Connections{
-        target: BasicConfig
-        function onHandleMenuItemClicked(context)
-        {
-            console.log("点击："+context)
-        }
-    }
-    Connections
-    {
         target: BasicConfig
         function onHandleToolclicked(context)
         {
-            console.log("点击工具栏:"+context)
+            console.log("选择工具栏:"+context)
+            if(context==="直线工具")
+            {
+
+                BasicConfig.currentTool="linePen"   //直线工具
+
+            }
+            else
+            {
+                BasicConfig.currentTool=""   //直线工具
+            }
+        }
+        function onHandleMenuItemClicked(context)
+        {
+            console.log("选择工具栏:"+context)
+            if(context==="直线工具")
+            {
+
+                BasicConfig.currentTool="linePen"   //直线工具
+
+            }
+            else
+            {
+                BasicConfig.currentTool=""   //直线工具
+            }
         }
     }
+
     //菜单栏
     menuBar: MenuBar {
         id:menuchickBar
@@ -173,7 +191,7 @@ ApplicationWindow {
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.top:parent.top
-        height: 40
+        height: 60
         border.width: 0
         Rectangle{
             anchors.left: parent.left
@@ -232,53 +250,19 @@ ApplicationWindow {
 
         }
     }
-
-    // Rectangle {
-    //     anchors.left: leftToolBarRect.right
-    //     anchors.right: rightRect.left
-    //     anchors.top: selectRect.bottom
-    //     anchors.bottom: mainWindow.bottom
-    //     width: 200
-    //     height: 740
-    //     color: "white"
-
-    //     // 外部边框
-    //     border.width: 0
-
-
-    //     // 中间的画布区域
-    //     GridCanvas{
-    //         id: gridCanvas
-    //         anchors.centerIn: parent
-    //         width: parent.width - 100   // 画布宽度
-    //         height: parent.height - 100 // 画布高度
-
-    //     }
-    //     // 显示尺寸
-
-    //     Text {
-    //         anchors.top: gridCanvas.bottom
-    //         anchors.horizontalCenter: gridCanvas.horizontalCenter
-    //         text: "Width: " + gridCanvas.width + " px, Height: " + gridCanvas.height + " px"
-    //         color: "black"
-    //         font.pixelSize: 16
-    //         anchors.topMargin: 10
-    //     }
-    //     // 可选的额外元素，比如尺寸显示，可以根据需要添加
-    // }
+    //中间绘图和尺寸区域
     GridCanvas{
-        id:canvasAreaRect
+        id:midRect
         anchors.left: leftToolBarRect.right
         anchors.right: rightRect.left
         anchors.top: selectRect.bottom
         anchors.bottom: mainWindow.bottom
-        height: 800
-        width: 600
-        color: "white"
-
-
-
+        height: parent.height-selectRect.height
+        width: parent.width-leftToolBar.width-rightRect.width
+        color:"white"
     }
+
+
 
 
 

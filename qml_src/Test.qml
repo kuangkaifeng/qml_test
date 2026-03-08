@@ -10,9 +10,16 @@ ApplicationWindow {
         target: BasicConfig
         function onHandleToolclicked(context)
         {
+            console.log("选择工具栏:"+context)
             if(context==="直线工具")
             {
-                console.log("选择工具栏:"+context)
+
+                BasicConfig.currentTool="linePen"   //直线工具
+
+            }
+            else
+            {
+                BasicConfig.currentTool=""   //直线工具
             }
         }
     }
@@ -223,9 +230,32 @@ ApplicationWindow {
                         ctx.lineTo(width,y)
                         ctx.stroke()
                     }
+                    //画历史线
+                    for(var i=0;i<BasicConfig.history.length;i++)
+                    {
 
+                        var line=BasicConfig.history[i]
+                        ctx.strokeStyle=line.color
+                        ctx.lineWidth=line.width
+                        ctx.beginPath()
+                        ctx.moveTo(line.start.x,line.start.y)
+                        ctx.lineTo(line.end.x,line.end.y)
+                        ctx.stroke()
+                    }
+                    //console.log("drawing:"+BasicConfig.drawing+"currentTool:"+BasicConfig.currentTool)
+                    if(BasicConfig.drawing && BasicConfig.currentTool==="linePen")
+                    {
+                        ctx.strokeStyle=BasicConfig.penColor
+                        ctx.lineWidth=BasicConfig.penWidth
+
+                        ctx.beginPath()
+                        ctx.moveTo(BasicConfig.startX,BasicConfig.startY)
+                        ctx.lineTo(BasicConfig.previewX,BasicConfig.previewY)
+                        ctx.stroke()
+                    }
                 }
                 function drawLine(x1,y1,x2,y2,color,width)
+
                 {
                     BasicConfig.history.push({start:{x:x1,y:y1}, end:{x:x2,y:y2}, color: color, width: width})
                     requestPaint()
@@ -235,20 +265,62 @@ ApplicationWindow {
                 anchors.fill: parent
                 property real lastX
                 property real lastY
+                hoverEnabled: true
+                acceptedButtons: Qt.LeftButton|Qt.RightButton
                 onPressed: function(mouse)
                 {
-                    lastX=mouse.x
-                    lastY=mouse.y
-                    canvas.drawLine(lastX,lastY,mouse.x,mouse.y,"black",2)
+                    if(mouse.button === Qt.RightButton)
+                    {
+                        console.log("鼠标点击了右键")
+                        BasicConfig.drawing = false
+                        canvas.requestPaint()
+                        return
+                    }
+
+                    if(BasicConfig.currentTool !== "linePen")
+                        return
+
+                    if(!BasicConfig.drawing)
+                    {
+                        BasicConfig.startX = mouse.x
+                        BasicConfig.startY = mouse.y
+
+                        BasicConfig.previewX = mouse.x
+                        BasicConfig.previewY = mouse.y
+
+                        BasicConfig.drawing = true
+                    }
+                    else
+                    {
+                        canvas.drawLine(
+                            BasicConfig.startX,
+                            BasicConfig.startY,
+                            mouse.x,
+                            mouse.y,
+                            BasicConfig.penColor,
+                            BasicConfig.penWidth
+                        )
+
+                        BasicConfig.startX = mouse.x
+                        BasicConfig.startY = mouse.y
+                    }
+
+                    canvas.requestPaint()
+
                 }
                 onPositionChanged: function(mouse)
                 {
-                    if(mouse.buttons===Qt.LeftButton)
+                    //console.log("drawing:"+BasicConfig.drawing+"currentTool:"+BasicConfig.currentTool)
+                    if(BasicConfig.drawing&&BasicConfig.currentTool==="linePen")
                     {
-                        BasicConfig.offsetX-=mouse.x-lastX
-                        BasicConfig.offsetY-=mouse.y-lastY
-                        lastX=mouse.x
-                        lastY=mouse.y
+                        // BasicConfig.offsetX-=mouse.x-lastX
+                        // BasicConfig.offsetY-=mouse.y-lastY
+                        // lastX=mouse.x
+                        // lastY=mouse.y
+
+                        BasicConfig.previewX=mouse.x
+                        BasicConfig.previewY=mouse.y
+
 
                         canvas.requestPaint()
                         leftCanvas.requestPaint()
@@ -257,6 +329,7 @@ ApplicationWindow {
                         bottomCanvas.requestPaint()
                     }
                 }
+
                 onWheel: function(wheel)
                 {
                     if(wheel.angleDelta.y>0)
