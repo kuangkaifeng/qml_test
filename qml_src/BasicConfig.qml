@@ -62,7 +62,7 @@ QtObject{
     property color penColor: "black"                                                                                        //笔颜色
     property int penWidth: 2
     property string currentTool: ""
-    property color btnHoverColor :"#FF504050"                                                                               //菜单栏悬浮颜色
+    property color btnHoverColor :"#FF534353"                                                                               //菜单栏悬浮颜色
     property color backgropundColor: "#FF525353"
 
     /*
