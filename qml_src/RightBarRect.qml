@@ -4,7 +4,7 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 2.15
 import QtQuick.Shapes 1.8
 import QtQuick.Controls.Basic
-
+import Qt.labs.qmlmodels
 Rectangle{
     //设备选择区域
     Rectangle{
@@ -172,11 +172,50 @@ Rectangle{
                 font.pixelSize:12
             }
         }
+
+        //表格
+        Rectangle{
+            id:tableRect
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: titleTableRect.bottom
+            anchors.bottom: parent.bottom
+            TableView {
+                id: layerTable
+                anchors.fill: parent
+                clip: true
+
+                model: dataHandlerManger
+
+                ScrollBar.vertical: ScrollBar {}
+                ScrollBar.horizontal: ScrollBar {}
+
+                delegate: Rectangle {
+                    implicitHeight: 30
+                    implicitWidth: parent.width/6
+                    border.width: 1
+                    border.color: "gray"
+
+                    Text {
+                        anchors.centerIn: parent
+
+                        text: {
+                            switch(column) {
+                            case 0: return model.id
+                            case 1: return model.layer
+                            case 2: return model.mode
+                            case 3: return model.speed
+                            case 4: return model.output
+                            case 5: return model.visible
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
     }
-
-    //表格
-
-
 
 
 

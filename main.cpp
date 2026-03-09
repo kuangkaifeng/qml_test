@@ -27,13 +27,7 @@ int main(int argc, char *argv[])
 
     DataHandler dataHandlerManger;
     // 创建示例数据 - 表头: #、层、模式，速度/功率、输出、显示
-    QList<QVariantList> sampleData;
-    sampleData.append({QVariant(1), QVariant("上层"), QVariant("自动"), QVariant("1000 rpm"), true, false});
-    sampleData.append({QVariant(2), QVariant("中层"), QVariant("手动"), QVariant("800 rpm"), true, true});
-    sampleData.append({QVariant(3), QVariant("下层"), QVariant("自动"), QVariant("1200 rpm"), true, true});
-    sampleData.append({QVariant(4), QVariant("上层"), QVariant("手动"), QVariant("600 rpm"), true, true});
 
-    dataHandlerManger.setTableData(sampleData);
     engine.rootContext()->setContextProperty("dataHandlerManger",&dataHandlerManger);
 
 
