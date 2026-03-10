@@ -202,10 +202,7 @@ Rectangle{
                 {
                     console.log("鼠标点击了右键")
                     BasicConfig.drawing = false
-<<<<<<< HEAD
                     BasicConfig.currentTool=""
-=======
->>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
                     canvas.requestPaint()
                     return
                 }

@@ -63,7 +63,6 @@ QtObject{
     property int penWidth: 2
     property string currentTool: ""
     property color btnHoverColor :"#FF534353"                                                                               //菜单栏悬浮颜色
-<<<<<<< HEAD
     property color backgropundColor: "#FF525353"                                                                            //背景颜色
     property color textHoverColor: "yellow"                                                                                 //文本悬浮颜色
     property color textColor: "white"                                                                                       //文本原始颜色
@@ -76,20 +75,6 @@ QtObject{
     *                    ================属性部分==========
     *
     */
-=======
-    property color backgropundColor: "#FF525353"
-
-    /*
-    *
-    *                    ================信号部分==========
-    *
-    */
-    //信号
-    signal handleMenuItemClicked(string context)                                                                            //处理下拉选项
-    signal handleToolclicked(string context)                                                                                //处理工具栏选项
-
-
->>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
     property real scaleFactor: 1.0                                                                                          //画布比例
     property int gridSize: 25                                                                                               //网格大小
     property int step: 50                                                                                                   //尺寸个数
@@ -100,7 +85,6 @@ QtObject{
     property real startY: 0                                                                                                 //直线开始的y位置
     property real previewX: 0                                                                                               //当前鼠标x位置
     property real previewY: 0                                                                                               //当前鼠标y位置
-<<<<<<< HEAD
     property var headerTitles: [
         {name:"#",text:30},
         {name:"层",text:35},
@@ -125,7 +109,5 @@ QtObject{
     signal handleTestButtonClicked()                                                                                        //测试按钮被点击事件
 
     signal handleAction(var actionType, var context)                                                                        //事件信号
-=======
->>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
 
 }

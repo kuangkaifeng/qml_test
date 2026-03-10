@@ -3,12 +3,11 @@
 #include <QIcon>
 #include <QDebug>
 #include <QDir>
-<<<<<<< HEAD
+
 #include <QQmlContext>
 #include "datahandler.h"
 
-=======
->>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
+
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +19,7 @@ int main(int argc, char *argv[])
     // 设置应用程序的窗口图标
     app.setWindowIcon(QIcon(QGuiApplication::applicationDirPath()+"/../image/icon.ico")); // 从资源文件加载图标
 
-<<<<<<< HEAD
+
 
 
     QQmlApplicationEngine engine;
@@ -37,10 +36,8 @@ int main(int argc, char *argv[])
     dataHandlerManger.setTableData(sampleData);
     engine.rootContext()->setContextProperty("dataHandlerManger",&dataHandlerManger);
 
-=======
-    QQmlApplicationEngine engine;
-    const QUrl url(QStringLiteral("qrc:/main.qml"));
->>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
+
+
     QObject::connect(
         &engine,
         &QQmlApplicationEngine::objectCreated,
@@ -52,10 +49,9 @@ int main(int argc, char *argv[])
         Qt::QueuedConnection);
     engine.load(url);
     qmlRegisterSingletonType(QUrl("qrc:/BasicConfig.qml"),"BasicConfig",1,0,"BasicConfig");
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
+
+
     return app.exec();
 }

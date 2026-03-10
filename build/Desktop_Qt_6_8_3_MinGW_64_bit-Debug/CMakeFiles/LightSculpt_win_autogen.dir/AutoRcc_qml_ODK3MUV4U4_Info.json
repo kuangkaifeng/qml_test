@@ -9,7 +9,9 @@
 	"INCLUDE_DIR" : "D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/LightSculpt_win_autogen/include",
 	"INPUTS" : 
 	[
+		"D:/Code/LightScpult/LightSculpt_win/qml_src/RightBarRect.qml",
 		"D:/Code/LightScpult/LightSculpt_win/qml_src/LeftToolBar.qml",
+		"D:/Code/LightScpult/LightSculpt_win/qml_src/TableCell.qml",
 		"D:/Code/LightScpult/LightSculpt_win/qml_src/qmldir",
 		"D:/Code/LightScpult/LightSculpt_win/qml_src/ToolSelectBar.qml",
 		"D:/Code/LightScpult/LightSculpt_win/qml_src/Test.qml",

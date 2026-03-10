@@ -38,11 +38,7 @@ Rectangle{
                     }
 
                     onClicked: {
-<<<<<<< HEAD
                         BasicConfig.handleAction("Toolclicked",modelData.name)
-=======
-                        BasicConfig.handleToolclicked(modelData.name)
->>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
                     }
                 }
             }

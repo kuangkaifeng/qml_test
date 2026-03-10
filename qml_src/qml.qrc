@@ -7,10 +7,8 @@
         <file>LeftToolBar.qml</file>
         <file>GridCanvas.qml</file>
         <file>Test.qml</file>
-<<<<<<< HEAD
         <file>RightBarRect.qml</file>
         <file>TableCell.qml</file>
-=======
->>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
+
     </qresource>
 </RCC>
