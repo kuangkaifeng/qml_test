@@ -27,7 +27,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         image.qrc
+<<<<<<< HEAD
         datahandler.h datahandler.cpp
+=======
+>>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
 
 
     )

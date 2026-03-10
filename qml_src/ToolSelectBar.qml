@@ -1,4 +1,5 @@
 import QtQuick 2.15
+<<<<<<< HEAD
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 2.15
@@ -407,5 +408,10 @@ Rectangle{
 
 
     }
+=======
+
+//图纸操作行
+Rectangle{
+>>>>>>> 1f580ed4d676dc983e06fb6a486bc5e397e37e63
 
 }
