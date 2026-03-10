@@ -1,0 +1,21 @@
+# ninja log v6
+10	206	7947241886680324	.qt/qml_imports/LightSculpt_win_build.cmake	e79284e3425da66a
+10	206	7947241886680324	D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/.qt/qml_imports/LightSculpt_win_build.cmake	e79284e3425da66a
+10	75	7947258530856968	D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/LightSculpt_win_autogen/timestamp	376fc1c8e89b6a14
+10	75	7947258530856968	LightSculpt_win_autogen/timestamp	376fc1c8e89b6a14
+10	75	7947258530856968	LightSculpt_win_autogen/mocs_compilation.cpp	376fc1c8e89b6a14
+344	376	7947241888102082	CMakeFiles/LightSculpt_win.dir/LightSculpt_win_autogen/mocs_compilation.cpp.obj	204b5682ec698af9
+10	75	7947258530856968	D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/LightSculpt_win_autogen/mocs_compilation.cpp	376fc1c8e89b6a14
+115	156	7945504020870055	CMakeFiles/LightSculpt_win.dir/LightSculpt_win_autogen/EWIEGA46WW/qrc_qml.cpp.obj	4075cd073fb8a684
+78	2450	7947244973591921	CMakeFiles/LightSculpt_win.dir/main.cpp.obj	c3ed96f6a55ecb3d
+2163	2297	7945490311294716	LightSculpt_win.exe	28f5a06fa04ecaca
+7	21	7947241300595850	CMakeFiles/clean.additional	2a94c5e9f14cede4
+10	42	7947288908157215	D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/LightSculpt_win_autogen/ODK3MUV4U4/qrc_qml.cpp	ac542ef3939f5f89
+21	27	7947241300735478	clean	96f80e09c1a6c7ab
+93	225	7947288908725698	D:/Code/LightScpult/LightSculpt_win/bin/LightSculpt_win.exe	f8e2267c74e02413
+10	42	7947288908157215	LightSculpt_win_autogen/ODK3MUV4U4/qrc_qml.cpp	ac542ef3939f5f89
+42	93	7947288908227036	CMakeFiles/LightSculpt_win.dir/LightSculpt_win_autogen/ODK3MUV4U4/qrc_qml.cpp.obj	16696b12b239c65e
+76	113	7947258531824382	LightSculpt_win_autogen/EWIEGA46WW/qrc_image.cpp	ff6956fa2c62a431
+76	113	7947258531824382	D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/LightSculpt_win_autogen/EWIEGA46WW/qrc_image.cpp	ff6956fa2c62a431
+114	234	7947258531904166	CMakeFiles/LightSculpt_win.dir/LightSculpt_win_autogen/EWIEGA46WW/qrc_image.cpp.obj	5e0c7b73d3a88101
+10	1258	7947258355808926	build.ninja	1e640a601a39cbb1
