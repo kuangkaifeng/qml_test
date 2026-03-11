@@ -706,15 +706,104 @@ Rectangle{
 
         }
         //暂停、停止、开始操作
-        Rectangle
+        Item
         {
+            id:pauseStopStart
             anchors.left: parent.left
             anchors.leftMargin: 10
             anchors.top: downRect.bottom
+            anchors.right: parent.right
+            anchors.rightMargin: 20
             anchors.topMargin: 15
-            width: parent.width-10
+            width: parent.width-30
             height: 40
+
             Row{
+                width: parent.width
+                height: parent.height
+                spacing: 5
+                Repeater{
+                    model:BasicConfig.optBtnIconModel
+                    Rectangle{
+                        id:pauseRect
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        color:BasicConfig.optBtnbackground
+                        width: parent.width/3
+                        height: parent.height
+                        Image {
+                            id:img
+                            anchors.left: parent.left
+                            anchors.leftMargin: 10
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: 30
+                            height: 30
+                            source: modelData.text
+                        }
+                        Text {
+                            anchors.left: img.right
+                            anchors.leftMargin: 5
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.bold: true
+                            font.pixelSize: 14
+                            text: modelData.name
+                        }
+                        radius: 10
+                    }
+
+                }
+
+
+            }
+        }
+        //矩形边框，圆形边框，复位，去往原点
+        Item
+        {
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            anchors.top: pauseStopStart.bottom
+            anchors.topMargin: 10
+            anchors.right: parent.right
+            anchors.rightMargin: 10
+
+            width: parent.width-15
+            height: 40
+
+            Row{
+                width: parent.width
+                height: parent.height
+                spacing: 5
+                Repeater{
+                    model:BasicConfig.optBtnIconModel2
+                    Rectangle{
+
+                        anchors.top: parent.top
+                        anchors.bottom: parent.bottom
+                        color:BasicConfig.optBtnbackground
+                        width: parent.width/4
+                        height: parent.height
+                        Image {
+                            id:pic
+                            anchors.left: parent.left
+                            anchors.leftMargin: 5
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: modelData.text?18:8
+                            height: 18
+                            source:modelData.text
+                        }
+                        Text {
+                            anchors.left: pic.right
+                            anchors.leftMargin: 5
+                            anchors.verticalCenter: parent.verticalCenter
+                            font.bold: true
+                            font.pixelSize: 10
+                            text: modelData.name
+                        }
+                        radius: 10
+                    }
+
+                }
+
 
             }
         }

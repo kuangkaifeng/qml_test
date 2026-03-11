@@ -69,6 +69,18 @@ QtObject{
     property int textFontSize: 18                                                                                           //文本字体大小
     property color rightProperBarBckColor: "#FFB3B5B6"                                                                      //右侧属性栏背景颜色
     property int tipDelay: 1000                                                                                             //提示延时时间设置（ms）
+    property color optBtnbackground: "#FFC7CACB"                                                                            //操作按钮背景颜色
+    property var optBtnIconModel: [
+        {name:"暂停",text:"qrc:/image/pause.png"},
+        {name:"停止",text:"qrc:/image/stop.png"},
+        {name:"开始",text:"qrc:/image/start.png"}
+    ]
+    property var optBtnIconModel2: [
+        {name:"矩形边框",text:"qrc:/image/pause.png"},
+        {name:"圆形边框",text:"qrc:/image/stop.png"},
+        {name:"复位",text:"qrc:/image/start.png"},
+        {name:"去往原点",text:""}
+    ]
 
     /*
     *
