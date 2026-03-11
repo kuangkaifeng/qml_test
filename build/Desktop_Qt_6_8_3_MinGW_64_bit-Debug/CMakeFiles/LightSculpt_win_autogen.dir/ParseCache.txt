@@ -4,13 +4,14 @@ D:/Code/LightScpult/LightSculpt_win/datahandler.h
  mmc:Q_OBJECT
  mdp:D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/LightSculpt_win_autogen/moc_predefs.h
  mdp:D:/Code/LightScpult/LightSculpt_win/datahandler.h
- mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/QList
- mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/QObject
+ mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/QAbstractTableModel
+ mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/QVector
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/q20functional.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/q20memory.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/q20type_traits.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/q20utility.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/q23utility.h
+ mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qabstractitemmodel.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qalgorithms.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qanystringview.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qarraydata.h
@@ -116,17 +117,10 @@ D:/Code/LightScpult/LightSculpt_win/datahandler.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qutf8stringview.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qvariant.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qvarlengtharray.h
+ mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qvector.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qversiontagging.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qxptype_traits.h
  mdp:D:/qt6/6.8.3/mingw_64/include/QtCore/qyieldcpu.h
- mdp:D:/qt6/6.8.3/mingw_64/include/QtNetwork/qtnetwork-config.h
- mdp:D:/qt6/6.8.3/mingw_64/include/QtNetwork/qtnetworkexports.h
- mdp:D:/qt6/6.8.3/mingw_64/include/QtNetwork/qtnetworkglobal.h
- mdp:D:/qt6/6.8.3/mingw_64/include/QtQml/QQmlListProperty
- mdp:D:/qt6/6.8.3/mingw_64/include/QtQml/qqmllist.h
- mdp:D:/qt6/6.8.3/mingw_64/include/QtQml/qtqml-config.h
- mdp:D:/qt6/6.8.3/mingw_64/include/QtQml/qtqmlexports.h
- mdp:D:/qt6/6.8.3/mingw_64/include/QtQml/qtqmlglobal.h
  mdp:D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm
  mdp:D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/array
  mdp:D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/atomic

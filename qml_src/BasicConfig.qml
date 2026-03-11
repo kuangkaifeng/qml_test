@@ -96,8 +96,10 @@ QtObject{
     property int tableheaderFontSize: 12                                                                                    //表头字体大小
     property int headerTableHeight: 20                                                                                      //表头高度
     property int tableItemHeight: 20                                                                                        //表内项内容的高度
-
-
+    property int deviceOptWidth: 40                                                                                         //操作列表中组件的宽度
+    property int deviceOptHeight: 40                                                                                        //操作列表中组件的高度
+    property int autoOptFouncsWidth: 60                                                                                    //操作列表中组件中的自动对焦宽度
+    property int autoOptFouncsHeight: 130                                                                                   //操作列表中组件中的自动对焦高度
     /*
     *
     *                    ================信号部分==========

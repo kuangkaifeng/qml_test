@@ -7,8 +7,8 @@ import QtQuick.Shapes 1.8
 
 ApplicationWindow {
     id:mainWindow
-    width: 1400
-    height: 800
+    width: 1450
+    height: 900
     visible: true
 
     //关联信号和函数接口
@@ -214,7 +214,7 @@ ApplicationWindow {
         anchors.right: parent.right
         anchors.top: selectRect.bottom
         anchors.bottom: parent.bottom
-        width: 250
+        width: 300
         color:BasicConfig.rightProperBarBckColor
 
     }

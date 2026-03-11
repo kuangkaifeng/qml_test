@@ -12,13 +12,14 @@ LightSculpt_win_autogen/timestamp: \
 	D:/Code/LightScpult/LightSculpt_win/image.qrc \
 	D:/Code/LightScpult/LightSculpt_win/main.cpp \
 	D:/Code/LightScpult/LightSculpt_win/qml_src/qml.qrc \
-	D:/qt6/6.8.3/mingw_64/include/QtCore/QList \
-	D:/qt6/6.8.3/mingw_64/include/QtCore/QObject \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/QAbstractTableModel \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/QVector \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/q20functional.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/q20memory.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/q20type_traits.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/q20utility.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/q23utility.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qabstractitemmodel.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qalgorithms.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qanystringview.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qarraydata.h \
@@ -124,17 +125,10 @@ LightSculpt_win_autogen/timestamp: \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qutf8stringview.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qvariant.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qvarlengtharray.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qvector.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qversiontagging.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qxptype_traits.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qyieldcpu.h \
-	D:/qt6/6.8.3/mingw_64/include/QtNetwork/qtnetwork-config.h \
-	D:/qt6/6.8.3/mingw_64/include/QtNetwork/qtnetworkexports.h \
-	D:/qt6/6.8.3/mingw_64/include/QtNetwork/qtnetworkglobal.h \
-	D:/qt6/6.8.3/mingw_64/include/QtQml/QQmlListProperty \
-	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmllist.h \
-	D:/qt6/6.8.3/mingw_64/include/QtQml/qtqml-config.h \
-	D:/qt6/6.8.3/mingw_64/include/QtQml/qtqmlexports.h \
-	D:/qt6/6.8.3/mingw_64/include/QtQml/qtqmlglobal.h \
 	D:/qt6/6.8.3/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake \
 	D:/qt6/6.8.3/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake \
 	D:/qt6/6.8.3/mingw_64/lib/cmake/Qt6/Qt6Config.cmake \

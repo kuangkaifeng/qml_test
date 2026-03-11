@@ -9,6 +9,6 @@
         <file>Test.qml</file>
         <file>RightBarRect.qml</file>
         <file>TableCell.qml</file>
-
+        <file>CustCheckbox.qml</file>
     </qresource>
 </RCC>
