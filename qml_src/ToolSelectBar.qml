@@ -49,6 +49,14 @@ Rectangle{
                     source: "qrc:/image/new.png"
 
                 }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","新建文件")
+                    }
+                }
             }
             //文件夹
             Item{
@@ -59,6 +67,14 @@ Rectangle{
                     id:dirImage
                     anchors.centerIn:parent
                     source:"qrc:/image/dir.png"
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","文件夹")
+                    }
                 }
             }
             //保存文件
@@ -71,6 +87,14 @@ Rectangle{
                     anchors.centerIn:parent
                     source:"qrc:/image/save.png"
                 }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","保存文件")
+                    }
+                }
             }
             //导入
             Item{
@@ -81,6 +105,14 @@ Rectangle{
                     id:exportfileImage
                     anchors.centerIn:parent
                     source:"qrc:/image/exportIn.png"
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","导入")
+                    }
                 }
             }
             //间隙
@@ -118,6 +150,14 @@ Rectangle{
                     anchors.centerIn:parent
                     source:"qrc:/image/back.png"
                 }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","撤销")
+                    }
+                }
             }
             //重做
             Item{
@@ -128,6 +168,14 @@ Rectangle{
                     id:repeateroptImage
                     anchors.centerIn:parent
                     source:"qrc:/image/repeater.png"
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","重做")
+                    }
                 }
             }
             //间隙
@@ -166,6 +214,14 @@ Rectangle{
                     anchors.centerIn: parent
                     text: qsTr("保存 GCode")
                 }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","保存GCode")
+                    }
+                }
             }
             //运行GCode
             Rectangle{
@@ -177,6 +233,14 @@ Rectangle{
                 Text {
                     anchors.centerIn: parent
                     text: qsTr("运行 GCode")
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","运行GCode")
+                    }
                 }
             }
             //间隙
@@ -214,6 +278,14 @@ Rectangle{
                     anchors.centerIn: parent
                     text: qsTr("旋转组件")
                 }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","旋转组件")
+                    }
+                }
             }
             //间隙
             Rectangle{
@@ -250,6 +322,14 @@ Rectangle{
                     anchors.centerIn: parent
                     text: qsTr("M7")
                 }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","M7")
+                    }
+                }
             }
             //M8
             Rectangle{
@@ -261,6 +341,14 @@ Rectangle{
                 Text {
                     anchors.centerIn: parent
                     text: qsTr("M8")
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","M8")
+                    }
                 }
             }
             //间隙
@@ -297,6 +385,14 @@ Rectangle{
                     anchors.centerIn:parent
                     source:"qrc:/image/materialLibrary.png"
                 }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","材料库")
+                    }
+                }
             }
             //相机
             Item{
@@ -308,6 +404,14 @@ Rectangle{
                     anchors.centerIn:parent
                     source:"qrc:/image/picture.png"
                 }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","相机")
+                    }
+                }
             }
             //AI
             Item{
@@ -318,6 +422,14 @@ Rectangle{
                     id:aiImage
                     anchors.centerIn:parent
                     source:"qrc:/image/ai.png"
+                }
+                MouseArea{
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        BasicConfig.handleAction("CommonToolClicked","AI")
+                    }
                 }
             }
         }
@@ -350,6 +462,9 @@ Rectangle{
                 onExited: {
                     communitytooltip.visible=false
                     communityText.color="white"
+                }
+                onClicked: {
+                    BasicConfig.handleAction("CommonToolClicked","社区论讨")
                 }
             }
             // ToolTip: 作为提示框显示
@@ -393,6 +508,9 @@ Rectangle{
                 onExited: {
                     websiteAddressToolTip.visible=false
                     websiteAddressText.color=BasicConfig.textColor
+                }
+                onClicked: {
+                    BasicConfig.handleAction("CommonToolClicked","官网")
                 }
             }
             // ToolTip: 作为提示框显示

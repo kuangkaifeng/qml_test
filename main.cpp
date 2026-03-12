@@ -6,7 +6,7 @@
 
 #include <QQmlContext>
 #include "datahandler.h"
-
+#include "./c++_src/dxfparser.h"
 
 
 int main(int argc, char *argv[])
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     // 创建示例数据 - 表头: #、层、模式，速度/功率、输出、显示
 
     engine.rootContext()->setContextProperty("dataHandlerManger",&dataHandlerManger);
-
+    qmlRegisterType<DxfParser>("com.yourcompany.dxfparser", 1, 0, "DxfParser");
 
 
     QObject::connect(

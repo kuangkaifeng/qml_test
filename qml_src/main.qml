@@ -3,7 +3,7 @@ import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 2.15
 import QtQuick.Shapes 1.8
-
+import com.yourcompany.dxfparser 1.0   // 注册的 C++ 模块
 
 ApplicationWindow {
     id:mainWindow
@@ -18,7 +18,7 @@ ApplicationWindow {
 
         function onHandleAction(actionType,context)
         {
-            console.log("事件类型："+actionType)
+            console.log("事件类型："+actionType+"事件内容："+context)
             if(actionType==="TestButtonClicked")
             {
 
@@ -243,6 +243,9 @@ ApplicationWindow {
 
         }
     }
+
+
+
     //中间绘图和尺寸区域
     GridCanvas{
         id:midRect

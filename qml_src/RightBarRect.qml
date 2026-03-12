@@ -280,7 +280,7 @@ Rectangle{
                             currentIndex: {
                                 // 找到 model.mode 在列表中的索引，若找不到则设为 -1（显示空白）
                                 var idx = model.indexOf(parentItem.datamodel.mode)  // 注意：modelData 可能未定义，应使用 model.mode
-                                console.log("modeltest:"+parentItem.datamodel.mode)
+                                //console.log("modeltest:"+parentItem.datamodel.mode)
                                 return idx >= 0 ? idx : -1
                             }
 
@@ -327,7 +327,7 @@ Rectangle{
 
                             onTextChanged: {
                                 // 调试信息，查看文本是否有效
-                                console.log("Text changed: ", text)
+                                //console.log("Text changed: ", text)
                                 if (column === 3 && text && text !== model.speed) {
                                     model.setProperty("speed", text)  // 使用 setProperty 来更新值
                                 }
@@ -608,6 +608,15 @@ Rectangle{
                 anchors.centerIn:parent
                 source: "qrc:/image/toUp.png"
             }
+            MouseArea
+            {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                hoverEnabled: true
+                onClicked: {
+                    BasicConfig.handleAction("CommonToolClicked","向上")
+                }
+            }
         }
         //回到原点
         Rectangle{
@@ -622,6 +631,15 @@ Rectangle{
             Image {
                 anchors.centerIn:parent
                 source: "qrc:/image/home.png"
+            }
+            MouseArea
+            {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                hoverEnabled: true
+                onClicked: {
+                    BasicConfig.handleAction("CommonToolClicked","回到原点")
+                }
             }
         }
         //向左
@@ -638,6 +656,15 @@ Rectangle{
                 anchors.centerIn:parent
                 source: "qrc:/image/toLeft.png"
             }
+            MouseArea
+            {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                hoverEnabled: true
+                onClicked: {
+                    BasicConfig.handleAction("CommonToolClicked","向左")
+                }
+            }
         }
         //向右
         Rectangle{
@@ -652,6 +679,15 @@ Rectangle{
             Image {
                 anchors.centerIn:parent
                 source: "qrc:/image/toRight.png"
+            }
+            MouseArea
+            {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                hoverEnabled: true
+                onClicked: {
+                    BasicConfig.handleAction("CommonToolClicked","向右")
+                }
             }
 
         }
@@ -668,6 +704,15 @@ Rectangle{
             Image {
                 anchors.centerIn:parent
                 source: "qrc:/image/toDown.png"
+            }
+            MouseArea
+            {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                hoverEnabled: true
+                onClicked: {
+                    BasicConfig.handleAction("CommonToolClicked","向下")
+                }
             }
         }
         //自动对焦
@@ -703,6 +748,15 @@ Rectangle{
                     font.bold: true
                 }
             }
+            MouseArea
+            {
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor
+                hoverEnabled: true
+                onClicked: {
+                    BasicConfig.handleAction("CommonToolClicked","自动对焦")
+                }
+            }
 
         }
         //暂停、停止、开始操作
@@ -731,6 +785,7 @@ Rectangle{
                         color:BasicConfig.optBtnbackground
                         width: parent.width/3
                         height: parent.height
+                        radius: 10
                         Image {
                             id:img
                             anchors.left: parent.left
@@ -748,7 +803,16 @@ Rectangle{
                             font.pixelSize: 14
                             text: modelData.name
                         }
-                        radius: 10
+                        MouseArea
+                        {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            hoverEnabled: true
+                            onClicked: {
+                                BasicConfig.handleAction("CommonToolClicked",modelData.name)
+                            }
+                        }
+
                     }
 
                 }
@@ -780,8 +844,9 @@ Rectangle{
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
                         color:BasicConfig.optBtnbackground
-                        width: parent.width/4
+                        width: (parent.width-15)/4
                         height: parent.height
+                        radius: 10
                         Image {
                             id:pic
                             anchors.left: parent.left
@@ -799,7 +864,15 @@ Rectangle{
                             font.pixelSize: 10
                             text: modelData.name
                         }
-                        radius: 10
+                        MouseArea
+                        {
+                            anchors.fill: parent
+                            cursorShape: Qt.PointingHandCursor
+                            hoverEnabled: true
+                            onClicked: {
+                                BasicConfig.handleAction("CommonToolClicked",modelData.name)
+                            }
+                        }
                     }
 
                 }

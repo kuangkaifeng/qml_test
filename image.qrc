@@ -29,7 +29,9 @@
         <file>image/edit.png</file>
         <file>image/icon.png</file>
         <file>image/icon.ico</file>
-        <file>image/repeater.png</file>
         <file>image/pause.png</file>
+        <file>image/circleRect.png</file>
+        <file>image/rectRect.png</file>
+        <file>image/repeater.png</file>
     </qresource>
 </RCC>

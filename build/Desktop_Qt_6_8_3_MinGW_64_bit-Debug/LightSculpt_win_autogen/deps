@@ -7,14 +7,25 @@ LightSculpt_win_autogen/timestamp: \
 	D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	D:/Code/LightScpult/LightSculpt_win/build/Desktop_Qt_6_8_3_MinGW_64_bit-Debug/LightSculpt_win_autogen/moc_predefs.h \
+	D:/Code/LightScpult/LightSculpt_win/c++_src/dxfparser.cpp \
+	D:/Code/LightScpult/LightSculpt_win/c++_src/dxfparser.h \
 	D:/Code/LightScpult/LightSculpt_win/datahandler.cpp \
 	D:/Code/LightScpult/LightSculpt_win/datahandler.h \
 	D:/Code/LightScpult/LightSculpt_win/image.qrc \
+	D:/Code/LightScpult/LightSculpt_win/libdxfrw-LC2.2.0/src/drw_base.h \
+	D:/Code/LightScpult/LightSculpt_win/libdxfrw-LC2.2.0/src/drw_entities.h \
+	D:/Code/LightScpult/LightSculpt_win/libdxfrw-LC2.2.0/src/drw_header.h \
+	D:/Code/LightScpult/LightSculpt_win/libdxfrw-LC2.2.0/src/drw_interface.h \
+	D:/Code/LightScpult/LightSculpt_win/libdxfrw-LC2.2.0/src/drw_objects.h \
+	D:/Code/LightScpult/LightSculpt_win/libdxfrw-LC2.2.0/src/libdxfrw.h \
 	D:/Code/LightScpult/LightSculpt_win/main.cpp \
 	D:/Code/LightScpult/LightSculpt_win/qml_src/qml.qrc \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/QAbstractTableModel \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/QJsonArray \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/QObject \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/QVector \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/q20functional.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/q20iterator.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/q20memory.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/q20type_traits.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/q20utility.h \
@@ -34,6 +45,9 @@ LightSculpt_win_autogen/timestamp: \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qbytearrayalgorithms.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qbytearraylist.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qbytearrayview.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qcalendar.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qcborcommon.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qcborvalue.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qchar.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qcompare.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qcompare_impl.h \
@@ -47,7 +61,9 @@ LightSculpt_win_autogen/timestamp: \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qcontiguouscache.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qdarwinhelpers.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qdatastream.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qdatetime.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qdebug.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qendian.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qexceptionhandling.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qflags.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qfloat16.h \
@@ -62,13 +78,17 @@ LightSculpt_win_autogen/timestamp: \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qiodevicebase.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qiterable.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qiterator.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qjsonarray.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qjsonvalue.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qlatin1stringview.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qlist.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qlocale.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qlogging.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qmalloc.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qmap.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qmath.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qmetacontainer.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qmetaobject.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qmetatype.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qminmax.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qnamespace.h \
@@ -79,8 +99,10 @@ LightSculpt_win_autogen/timestamp: \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qobjectdefs_impl.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qoverload.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qpair.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qpointer.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qprocessordetection.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qrefcount.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qregularexpression.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qscopedpointer.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qscopeguard.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qset.h \
@@ -88,6 +110,7 @@ LightSculpt_win_autogen/timestamp: \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qshareddata_impl.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qsharedpointer.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qsharedpointer_impl.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qspan.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qstring.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qstringalgorithms.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qstringbuilder.h \
@@ -112,6 +135,7 @@ LightSculpt_win_autogen/timestamp: \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtdeprecationmarkers.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtenvironmentvariables.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtextstream.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qtimezone.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtmetamacros.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtnoop.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -121,14 +145,41 @@ LightSculpt_win_autogen/timestamp: \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtversion.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtversionchecks.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtypeinfo.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qtyperevision.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qtypes.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qurl.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qutf8stringview.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/quuid.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qvariant.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qvarlengtharray.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qvector.h \
+	D:/qt6/6.8.3/mingw_64/include/QtCore/qversionnumber.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qversiontagging.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qxptype_traits.h \
 	D:/qt6/6.8.3/mingw_64/include/QtCore/qyieldcpu.h \
+	D:/qt6/6.8.3/mingw_64/include/QtNetwork/qtnetwork-config.h \
+	D:/qt6/6.8.3/mingw_64/include/QtNetwork/qtnetworkexports.h \
+	D:/qt6/6.8.3/mingw_64/include/QtNetwork/qtnetworkglobal.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/QQmlEngine \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qjsengine.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qjsmanagedvalue.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qjsnumbercoercion.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qjsprimitivevalue.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qjsvalue.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqml.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmlabstracturlinterceptor.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmldebug.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmlengine.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmlerror.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmllist.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmlparserstatus.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmlprivate.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmlpropertyvaluesource.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qqmlregistration.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qtqml-config.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qtqmlexports.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQml/qtqmlglobal.h \
+	D:/qt6/6.8.3/mingw_64/include/QtQmlIntegration/qqmlintegration.h \
 	D:/qt6/6.8.3/mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake \
 	D:/qt6/6.8.3/mingw_64/lib/cmake/Qt6/FindWrapVulkanHeaders.cmake \
 	D:/qt6/6.8.3/mingw_64/lib/cmake/Qt6/Qt6Config.cmake \
@@ -839,6 +890,7 @@ LightSculpt_win_autogen/timestamp: \
 	D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h \
 	D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/utility.h \
 	D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/vector.tcc \
+	D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cassert \
 	D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cctype \
 	D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cerrno \
 	D:/qt6/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \

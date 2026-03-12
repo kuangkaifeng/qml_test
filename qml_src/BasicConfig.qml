@@ -76,9 +76,9 @@ QtObject{
         {name:"开始",text:"qrc:/image/start.png"}
     ]
     property var optBtnIconModel2: [
-        {name:"矩形边框",text:"qrc:/image/pause.png"},
-        {name:"圆形边框",text:"qrc:/image/stop.png"},
-        {name:"复位",text:"qrc:/image/start.png"},
+        {name:"矩形边框",text:"qrc:/image/rectRect.png"},
+        {name:"圆形边框",text:"qrc:/image/circleRect.png"},
+        {name:"复位",text:"qrc:/image/home.png"},
         {name:"去往原点",text:""}
     ]
 
