@@ -149,7 +149,7 @@ Rectangle{
                 // 隐藏其他显示元素
                 image.visible = false
                 svgImage.visible = false
-                canvas.visible = true
+                //canvas.visible = true
 
             }
         }
@@ -234,11 +234,73 @@ Rectangle{
                 ctx.restore()
             }
             function drawLine(x1,y1,x2,y2,color,width)
-
             {
                 BasicConfig.history.push({start:{x:x1,y:y1}, end:{x:x2,y:y2}, color: color, width: width})
                 requestPaint()
             }
+            // 拖放区域
+            DropArea {
+                id: dropArea
+                anchors.fill: parent
+
+                onEntered: function(drag) {
+                    if (drag.hasUrls) drag.accept()
+                }
+
+                onDropped: function(drop) {
+                    if (!drop.hasUrls) {
+                        drop.accept()
+                        return
+                    }
+
+                    var url = drop.urls[0]
+                    var filePath = url.toString()
+                    var fileName = filePath.split('/').pop()
+                    var ext = fileName.split('.').pop().toLowerCase()
+
+                    console.log("拖入文件:", fileName, "扩展名:", ext)
+
+                    // 图片格式列表
+                    var imageExts = ["jpg", "jpeg", "png", "gif", "bmp"]
+                    // SVG 格式
+                    var svgExts = ["svg"]
+                    // DXF 格式
+                    var dxfExts = ["dxf"]
+                    // DWG 格式
+                    var dwgExts = ["dwg"]
+
+                    // 隐藏所有显示元素
+                    image.visible = false
+                    svgImage.visible = false
+
+                    //cadInfo.visible = false
+                    BasicConfig.dragX=drop.x
+                    BasicConfig.dragY=drop.y
+                    console.log("drogX:"+BasicConfig.dragX+"drogY:"+BasicConfig.dragY)
+                    if (imageExts.indexOf(ext) !== -1) {
+                        // 图片文件
+                        image.source = filePath
+                        image.visible = true
+                        //canvas.visible=true
+                    } else if (svgExts.indexOf(ext) !== -1) {
+                        // SVG 文件
+                        svgImage.source = filePath
+                        svgImage.visible = true
+                    } else if (dxfExts.indexOf(ext) !== -1) {
+                        // DXF 文件 -> 调用 C++ 解析器
+                        var localPath = filePath.toString().replace(/^(file:\/{3})/g, "")
+                        dxfParser.loadFile(localPath)
+                        svgImage.visible = true
+                        // 显示等待提示（可选）
+                    } else {
+                        dxfParser.onDrogError("DrogEvent","不支持该文件格式")
+
+                    }
+
+                    drop.accept()
+                }
+            }
+
         }
         MouseArea{
             anchors.fill: parent
@@ -330,81 +392,24 @@ Rectangle{
         // 显示图片（用于普通图像文件）
         Image {
             id: image
-            anchors.fill: parent
+            x:BasicConfig.dragX
+            y:BasicConfig.dragY
+            width: implicitWidth
+            height: implicitHeight
+            scale: 0.5
             fillMode: Image.PreserveAspectCrop
-            scale: 0.1
             visible: false   // 默认隐藏
         }
         // 显示 SVG 文件（Qt 6.8+ 使用 VectorImage，否则可用 Image）
         VectorImage {
             id: svgImage
-            anchors.fill: parent
+            x:BasicConfig.dragX
+            y:BasicConfig.dragY
+            width: implicitWidth
+            height: implicitHeight
             visible: false
-            scale: 0.1
-            preferredRendererType: VectorImage.CurveRenderer
-        }
-    }
-    // 拖放区域
-    DropArea {
-        id: dropArea
-        anchors.fill: parent
-
-        onEntered: function(drag) {
-            if (drag.hasUrls) drag.accept()
-        }
-
-        onDropped: function(drop) {
-            if (!drop.hasUrls) {
-                drop.accept()
-                return
-            }
-
-            var url = drop.urls[0]
-            var filePath = url.toString()
-            var fileName = filePath.split('/').pop()
-            var ext = fileName.split('.').pop().toLowerCase()
-
-            console.log("拖入文件:", fileName, "扩展名:", ext)
-
-            // 图片格式列表
-            var imageExts = ["jpg", "jpeg", "png", "gif", "bmp"]
-            // SVG 格式
-            var svgExts = ["svg"]
-            // DXF 格式
-            var dxfExts = ["dxf"]
-            // DWG 格式
-            var dwgExts = ["dwg"]
-
-            // 隐藏所有显示元素
-            image.visible = false
-            svgImage.visible = false
-            canvas.visible = false
-            //cadInfo.visible = false
-
-            if (imageExts.indexOf(ext) !== -1) {
-                // 图片文件
-                image.source = filePath
-                image.visible = true
-            } else if (svgExts.indexOf(ext) !== -1) {
-                // SVG 文件
-                svgImage.source = filePath
-                svgImage.visible = true
-            } else if (dxfExts.indexOf(ext) !== -1) {
-                // DXF 文件 -> 调用 C++ 解析器
-                var localPath = filePath.toString().replace(/^(file:\/{3})/g, "")
-                dxfParser.loadFile(localPath)
-                // 显示等待提示（可选）
-            } else if (dwgExts.indexOf(ext) !== -1) {
-                // DWG 文件 -> 显示提示，并启动转换（需实现 C++ 部分）
-                cadInfo.visible = true
-                cadFileName.text = fileName
-                // 这里应调用 DwgParser 进行转换，见下文说明
-                // dwgParser.loadFile(localPath)
-            } else {
-                console.log("不支持的文件格式")
-            }
-
-            drop.accept()
+            scale: 0.5
+            preferredRendererType: VectorImage.PreserveAspectCrop
         }
     }
 

@@ -1,3 +1,0 @@
-set(__QT_DEPLOY_TARGET_LightSculpt_win_FILE D:/GitServer/working/LightSculpt_win/bin/LightSculpt_win.exe)
-set(__QT_DEPLOY_TARGET_LightSculpt_win_TYPE EXECUTABLE)
-set(__QT_DEPLOY_TARGET_LightSculpt_win_RUNTIME_DLLS D:/qt6/6.8.3/msvc2022_64/bin/Qt6Quickd.dll;D:/qt6/6.8.3/msvc2022_64/bin/Qt6QmlMetad.dll;D:/qt6/6.8.3/msvc2022_64/bin/Qt6QmlWorkerScriptd.dll;D:/qt6/6.8.3/msvc2022_64/bin/Qt6QmlModelsd.dll;D:/qt6/6.8.3/msvc2022_64/bin/Qt6Qmld.dll;D:/qt6/6.8.3/msvc2022_64/bin/Qt6OpenGLd.dll;D:/qt6/6.8.3/msvc2022_64/bin/Qt6Guid.dll;D:/qt6/6.8.3/msvc2022_64/bin/Qt6Networkd.dll;D:/qt6/6.8.3/msvc2022_64/bin/Qt6Cored.dll)

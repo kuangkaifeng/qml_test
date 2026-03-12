@@ -105,6 +105,10 @@ QtObject{
         {name:"输出",text:40},
         {name:"显示",text:40}
     ]
+    property real dragX: 0                                                                                                  //拖拽的默认x轴
+    property real dragY: 0                                                                                                  //拖拽的默认y轴
+
+
     property int tableheaderFontSize: 12                                                                                    //表头字体大小
     property int headerTableHeight: 20                                                                                      //表头高度
     property int tableItemHeight: 20                                                                                        //表内项内容的高度
