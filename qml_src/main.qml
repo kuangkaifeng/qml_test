@@ -29,6 +29,7 @@ ApplicationWindow {
 
                 if(context==="直线工具")
                 {
+
                     BasicConfig.currentTool="linePen"
                 }
                 else

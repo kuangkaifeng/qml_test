@@ -25,23 +25,7 @@ public:
      * 添加图元
      */
     void addEntity(Entity *e);
-    Q_INVOKABLE void addLine(qreal x1, qreal y1, qreal x2, qreal y2)
-    {
-        LineEntity* line = new LineEntity();
-        line->start = QPointF(x1, y1);
-        line->end   = QPointF(x2, y2);
-        entityList.append(line);
-        emit entityListChanged();  // 通知 QML
-    }
 
-    Q_INVOKABLE void addText(qreal x, qreal y, const QString& text)
-    {
-        TextEntity* t = new TextEntity();
-        t->setPosition(QPointF(x, y));
-        t->text = text;
-        entityList.append(t);
-        emit entityListChanged();
-    }
 private:
 
     QList<Entity*> m_entities;
