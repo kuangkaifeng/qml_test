@@ -22,8 +22,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/libdxfrw-LC2.2.0/CMakeLists.txt")
-    add_subdirectory(libdxfrw-LC2.2.0)  # 添加 libdxfrw 子目录，它应该会生成 dxfrw 库目标
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/libdxfrw/CMakeLists.txt")
+    add_subdirectory(libdxfrw)  # 添加 libdxfrw 子目录，它应该会生成 dxfrw 库目标
     # 注意：如果 libdxfrw 的 CMakeLists 没有导出合适的库目标，可能需要手动设置
     # 这里假设它生成了名为 dxfrw 的库目标
     set(LIBDXFRW_TARGET dxfrw)
@@ -42,35 +42,21 @@ else()
         message(FATAL_ERROR "未找到 libdxfrw，请检查路径或将其放在 libdxfrw 目录下")
     endif()
 endif()
+file(GLOB PROJECT_SRC
+    ${CMAKE_SOURCE_DIR}/c++_src/entityProject/*.cpp
+    ${CMAKE_SOURCE_DIR}/c++_src/entityProject/*.h
+)
+qt_add_executable(LightSculpt_win
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+    ${PROJECT_SRC}
+    image.qrc
+    datahandler.h
+    datahandler.cpp
+    c++_src/dxfparser.cpp
+    c++_src/dxfparser.h
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(LightSculpt_win
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-        image.qrc
-        datahandler.h
-        datahandler.cpp
-        c++_src/dxfparser.cpp
-        c++_src/dxfparser.h
-
-    )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET LightSculpt_win APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
-else()
-    if(ANDROID)
-        add_library(LightSculpt_win SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(LightSculpt_win
-          ${PROJECT_SOURCES}
-        )
-    endif()
-endif()
+)
 
 target_link_libraries(LightSculpt_win
     PRIVATE Qt${QT_VERSION_MAJOR}::Core

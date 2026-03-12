@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QQmlEngine>
 #include <QJsonArray>
-#include "../libdxfrw-LC2.2.0/src/libdxfrw.h"
+#include "../libdxfrw/src/libdxfrw.h"
    // 包含 libdxfrw 头文件
 
 class DxfParser : public QObject, public DRW_Interface
