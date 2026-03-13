@@ -1,6 +1,7 @@
 #include "EntityManager.h"
 #include "LineEntity.h"
 #include "CircleEntity.h"
+#include "RectEntity.h"
 
 EntityManager::EntityManager(QObject *parent)
     :QObject(parent)
@@ -63,19 +64,49 @@ void EntityManager::addCircle(int x, int y, int r, QString color, int width, boo
     }
     else
     {
-        // for(auto e:m_entities)
-        // {
-        //     LineEntity *e1=qobject_cast<LineEntity*>(e);
-        //     if(e1)
-        //     {
-        //         if(e1->x1==x1&&e1->y1==y1)
-        //         {
-        //             e1->x2=x2;
-        //             e1->y2=y2;
-        //         }
-        //     }
+        for(auto e:m_entities)
+        {
+            CircleEntity* e1=qobject_cast<CircleEntity*>(e);
+            if(e1)
+            {
+                if(e1->x()==x&&e1->y()==y)
+                {
+                    e1->radius=r;
+                }
+            }
+        }
 
-        // }
+    }
+}
+
+void EntityManager::addRect(int x, int y, int width, int height, QString color, int penWidth, bool flag)
+{
+    if(flag)
+    {
+        RectEntity *rect=new RectEntity;
+        rect->color=color;
+        rect->lineWidth=penWidth;
+        rect->width=width;
+        rect->height=height;
+        rect->setPos(x,y);
+
+        this->addEntity(rect);
+    }
+    else
+    {
+        for(auto e:m_entities)
+        {
+            RectEntity* e1=qobject_cast<RectEntity*>(e);
+            if(e1)
+            {
+                if(e1->x()==x&&e1->y()==y)
+                {
+                    e1->width=width;
+                    e1->height=height;
+                }
+            }
+        }
+
     }
 }
 

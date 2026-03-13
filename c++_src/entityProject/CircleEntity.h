@@ -8,6 +8,7 @@
  */
 class CircleEntity : public Entity
 {
+    Q_OBJECT
 public:
 
     CircleEntity();

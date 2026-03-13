@@ -183,16 +183,35 @@ Rectangle{
                     ctx.lineTo(width,y)
                     ctx.stroke()
                 }
-                //预览图
+                ctx.strokeStyle=BasicConfig.penColor
+                ctx.lineWidth=BasicConfig.penWidth
+                //预览图--线段
                 if(BasicConfig.drawing && BasicConfig.currentTool==="linePen")
                 {
-                    ctx.strokeStyle=BasicConfig.penColor
-                    ctx.lineWidth=BasicConfig.penWidth
-
                     ctx.beginPath()
                     ctx.moveTo(BasicConfig.startX,BasicConfig.startY)
                     ctx.lineTo(BasicConfig.previewX,BasicConfig.previewY)
                     ctx.stroke()
+                }
+                //预览图 --圆
+                if(BasicConfig.drawing && BasicConfig.currentTool==="circlePen")
+                {
+                    // 计算圆心和半径（假设你有起始点和当前点）
+                    const centerX = BasicConfig.startX
+                    const centerY = BasicConfig.startY
+                    const radius = Math.sqrt(Math.pow(BasicConfig.previewX - BasicConfig.startX, 2) +
+                                             Math.pow(BasicConfig.previewY - BasicConfig.startY, 2))
+
+                    ctx.beginPath()
+                    ctx.arc(centerX,centerY,radius,0,Math.PI*2)
+                    ctx.stroke()
+                }
+                if(BasicConfig.drawing && BasicConfig.currentTool==="rectPen")
+                {
+                    ctx.beginPath()
+                    ctx.strokeRect(BasicConfig.startX,BasicConfig.startY,BasicConfig.previewX-BasicConfig.startX
+                                   ,BasicConfig.previewY-BasicConfig.startY,BasicConfig.penColor,BasicConfig.penWidth,
+                                   false)
                 }
 
                 renderer.render(ctx,entityManager.entities())
@@ -235,18 +254,29 @@ Rectangle{
 
                     BasicConfig.drawing = true
                 }
+                //画线段
                 else if(BasicConfig.currentTool==="linePen")
                 {
                     entityManager.addLine(BasicConfig.startX,BasicConfig.startY,mouse.x,mouse.y,BasicConfig.penColor,BasicConfig.penWidth,true)
 
                 }
+                //画圆
                 else if(BasicConfig.currentTool==="circlePen")
                 {
                     var dx = mouse.x-BasicConfig.startX
                     var dy = mouse.y-BasicConfig.startY
-                    entityManager.addCircle(mouse.x,mouse.y,Math.sqrt(dx * dx + dy * dy),BasicConfig.penColor,BasicConfig.penWidth,true)
-
+                    entityManager.addCircle(BasicConfig.startX,BasicConfig.startY,Math.sqrt(dx * dx + dy * dy),BasicConfig.penColor,BasicConfig.penWidth,true)
+                    BasicConfig.drawing = false
                 }
+                //画矩形
+                else if(BasicConfig.currentTool==="rectPen")
+                {
+                    entityManager.addRect(BasicConfig.startX,BasicConfig.startY,BasicConfig.previewX-BasicConfig.startX
+                                          ,BasicConfig.previewY-BasicConfig.startY,BasicConfig.penColor,BasicConfig.penWidth,
+                                          true)
+                    BasicConfig.drawing = false
+                }
+
                 BasicConfig.startX = mouse.x
                 BasicConfig.startY = mouse.y
                 canvas.requestPaint()

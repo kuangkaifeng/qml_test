@@ -47,6 +47,17 @@ public:
      * @param flag false是预览图 否则真图
      */
     Q_INVOKABLE void addCircle(int x,int y,int r,QString color,int width,bool flag);
+    /**
+     * @brief addRect 添加矩形图元函数
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     * @param color
+     * @param penWidth
+     * @param flag
+     */
+    Q_INVOKABLE void addRect(int x,int y,int width,int height,QString color,int penWidth,bool flag);
 
 
 private:

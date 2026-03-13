@@ -37,6 +37,10 @@ ApplicationWindow {
                 {
                     BasicConfig.currentTool="circlePen"
                 }
+                else if(context==="矩形工具")
+                {
+                    BasicConfig.currentTool="rectPen"
+                }
             }
             else if(actionType==="Toolclicked")
             {
@@ -49,6 +53,10 @@ ApplicationWindow {
                 else if(context==="椭圆工具")
                 {
                     BasicConfig.currentTool="circlePen"
+                }
+                else if(context==="矩形工具")
+                {
+                    BasicConfig.currentTool="rectPen"
                 }
             }
 

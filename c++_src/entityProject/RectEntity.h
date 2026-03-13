@@ -8,6 +8,7 @@
  */
 class RectEntity : public Entity
 {
+    Q_OBJECT
 public:
 
     RectEntity();
