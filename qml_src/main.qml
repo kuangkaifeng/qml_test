@@ -41,6 +41,10 @@ ApplicationWindow {
                 {
                     BasicConfig.currentTool="rectPen"
                 }
+                else if(context==="新建文件")
+                {
+                    Dialog.accepted()
+                }
             }
             else if(actionType==="Toolclicked")
             {
@@ -58,6 +62,7 @@ ApplicationWindow {
                 {
                     BasicConfig.currentTool="rectPen"
                 }
+
             }
 
         }
