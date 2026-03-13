@@ -13,7 +13,7 @@
 #include "c++_src/entityProject/RectEntity.h"
 #include "c++_src/entityProject/CircleEntity.h"
 #include "c++_src/entityProject/TextEntity.h"
-
+#include "c++_src/entityProject/ImageEntity.h"
 #include "c++_src/entityProject/Renderer.h"
 
 int main(int argc, char *argv[])
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     line->y1=100;
     line->x2=400;
     line->y2=200;
-
+    line->color="red";
     manager.addEntity(line);
 
     /*
@@ -47,7 +47,8 @@ int main(int argc, char *argv[])
     rect->setPos(200,200);
     rect->width=150;
     rect->height=100;
-
+    rect->color="yellow";
+    rect->fillColor="white";
     manager.addEntity(rect);
 
     /*
@@ -56,17 +57,26 @@ int main(int argc, char *argv[])
     CircleEntity *circle=new CircleEntity;
     circle->setPos(500,200);
     circle->radius=80;
-
+    circle->lineWidth=2;
     manager.addEntity(circle);
 
     /*
      * 创建文本
      */
     TextEntity *text=new TextEntity;
-    text->setPos(300,400);
+    text->setPos(800,400);
+    text->color="red";
     text->text="Laser Software";
 
     manager.addEntity(text);
+
+    ImageEntity*image=new ImageEntity;
+    image->source="D:/Code/LightScpult/LightSculpt_win/image/device.png";
+    image->height=400;
+    image->width=400;
+    manager.addEntity(image);
+
+
 
     Renderer renderer;
 

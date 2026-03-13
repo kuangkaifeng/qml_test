@@ -31,7 +31,8 @@ public:
         Circle,
         Path,
         Image,
-        Text
+        Text,
+        Polygon
     };
 
     /*
@@ -88,10 +89,10 @@ protected:
 
     Type m_type;     // 图元类型
 
-    double m_x=0;    // 位置X
-    double m_y=0;    // 位置Y
-
     bool m_selected=false; // 是否被选中
+    int m_x;
+    int m_y;
+
 };
 
 #endif

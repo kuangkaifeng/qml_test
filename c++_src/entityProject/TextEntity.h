@@ -49,6 +49,8 @@ public:
      */
     QString fontFamily = "Arial";
 
+    QString color;
+
 };
 
 #endif

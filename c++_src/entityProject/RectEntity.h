@@ -2,7 +2,7 @@
 #define RECTENTITY_H
 
 #include "Entity.h"
-
+#include <QColor>
 /*
  * 矩形图元
  */
@@ -14,6 +14,11 @@ public:
 
     double width;   // 宽
     double height;  // 高
+    QString color;
+
+    QString fillColor="";//填充颜色
+
+    int lineWidth=0;
     /*
      * 返回图元类型
      */

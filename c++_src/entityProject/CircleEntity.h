@@ -20,6 +20,15 @@ public:
     Entity::Type type() const override;
 
     QRectF boundingRect() const override;
+
+    bool isEllipse=false;
+
+    int lineWidth;
+    QString color;
+
+    QString fillColor;
+
+
 };
 
 #endif

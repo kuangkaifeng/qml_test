@@ -22,26 +22,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/libdxfrw/CMakeLists.txt")
-    add_subdirectory(libdxfrw)  # 添加 libdxfrw 子目录，它应该会生成 dxfrw 库目标
-    # 注意：如果 libdxfrw 的 CMakeLists 没有导出合适的库目标，可能需要手动设置
-    # 这里假设它生成了名为 dxfrw 的库目标
-    set(LIBDXFRW_TARGET dxfrw)
-else()
-    # 方式二：如果 libdxfrw 已安装在系统中，可以尝试用 find_library 查找
-    find_library(LIBDXFRW_LIBRARY NAMES dxfrw libdxfrw REQUIRED)
-    find_path(LIBDXFRW_INCLUDE_DIR NAMES libdxfrw.h PATH_SUFFIXES libdxfrw)
-    if(LIBDXFRW_LIBRARY AND LIBDXFRW_INCLUDE_DIR)
-        add_library(dxfrw UNKNOWN IMPORTED)
-        set_target_properties(dxfrw PROPERTIES
-            IMPORTED_LOCATION ${LIBDXFRW_LIBRARY}
-            INTERFACE_INCLUDE_DIRECTORIES ${LIBDXFRW_INCLUDE_DIR}
-        )
-        set(LIBDXFRW_TARGET dxfrw)
-    else()
-        message(FATAL_ERROR "未找到 libdxfrw，请检查路径或将其放在 libdxfrw 目录下")
-    endif()
-endif()
+
+add_subdirectory(libdxfrw)  # 添加 libdxfrw 子目录，它应该会生成 dxfrw 库目标
+# 注意：如果 libdxfrw 的 CMakeLists 没有导出合适的库目标，可能需要手动设置
+# 这里假设它生成了名为 dxfrw 的库目标
+set(LIBDXFRW_TARGET dxfrw)
 file(GLOB PROJECT_SRC
     ${CMAKE_SOURCE_DIR}/c++_src/entityProject/*.cpp
     ${CMAKE_SOURCE_DIR}/c++_src/entityProject/*.h

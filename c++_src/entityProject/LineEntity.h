@@ -8,6 +8,7 @@
  */
 class LineEntity : public Entity
 {
+    Q_OBJECT
 public:
 
     LineEntity();
@@ -26,6 +27,9 @@ public:
      * 返回直线的包围盒
      */
     QRectF boundingRect() const override;
+
+    QString color="black";
+
 };
 
 #endif
