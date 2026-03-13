@@ -183,19 +183,7 @@ Rectangle{
                     ctx.lineTo(width,y)
                     ctx.stroke()
                 }
-                //画历史线
-                for(var k=0;k<BasicConfig.history.length;k++)
-                {
-
-                    var line=BasicConfig.history[k]
-                    ctx.strokeStyle=line.color
-                    ctx.lineWidth=line.width
-                    ctx.beginPath()
-                    ctx.moveTo(line.start.x,line.start.y)
-                    ctx.lineTo(line.end.x,line.end.y)
-                    ctx.stroke()
-                }
-                //console.log("drawing:"+BasicConfig.drawing+"currentTool:"+BasicConfig.currentTool)
+                //预览图
                 if(BasicConfig.drawing && BasicConfig.currentTool==="linePen")
                 {
                     ctx.strokeStyle=BasicConfig.penColor
@@ -206,100 +194,15 @@ Rectangle{
                     ctx.lineTo(BasicConfig.previewX,BasicConfig.previewY)
                     ctx.stroke()
                 }
-                ctx.strokeStyle="black"
-                for (var i = 0; i < entities.length; i++) {
-                    var e = entities[i]
-                    ctx.beginPath()
-                    if (e.type === "line") {
-                        ctx.moveTo(e.x1, e.y1)
-                        ctx.lineTo(e.x2, e.y2)
-                        ctx.stroke()
-                    } else if (e.type === "circle") {
-                        ctx.arc(e.cx, e.cy, e.r, 0, 2 * Math.PI)
-                        ctx.stroke()
-                    } else if (e.type === "arc") {
-                        ctx.arc(e.cx, e.cy, e.r, e.startAngle, e.endAngle)
-                        ctx.stroke()
-                    } else if (e.type === "lwpolyline") {
-                        var pts = e.points
-                        if (pts.length > 0) {
-                            ctx.moveTo(pts[0].x, pts[0].y)
-                            for (var j = 1; j < pts.length; j++)
-                                ctx.lineTo(pts[j].x, pts[j].y)
-                            if (e.closed) ctx.closePath()
-                            ctx.stroke()
-                        }
-                    }
-                }
-                ctx.restore()
+
+                renderer.render(ctx,entityManager.entities())
+
+
+
+
             }
-            function drawLine(x1,y1,x2,y2,color,width)
-            {
-                BasicConfig.history.push({start:{x:x1,y:y1}, end:{x:x2,y:y2}, color: color, width: width})
-                requestPaint()
-            }
-            // 拖放区域
-            DropArea {
-                id: dropArea
-                anchors.fill: parent
 
-                onEntered: function(drag) {
-                    if (drag.hasUrls) drag.accept()
-                }
 
-                onDropped: function(drop) {
-                    if (!drop.hasUrls) {
-                        drop.accept()
-                        return
-                    }
-
-                    var url = drop.urls[0]
-                    var filePath = url.toString()
-                    var fileName = filePath.split('/').pop()
-                    var ext = fileName.split('.').pop().toLowerCase()
-
-                    console.log("拖入文件:", fileName, "扩展名:", ext)
-
-                    // 图片格式列表
-                    var imageExts = ["jpg", "jpeg", "png", "gif", "bmp"]
-                    // SVG 格式
-                    var svgExts = ["svg"]
-                    // DXF 格式
-                    var dxfExts = ["dxf"]
-                    // DWG 格式
-                    var dwgExts = ["dwg"]
-
-                    // 隐藏所有显示元素
-                    image.visible = false
-                    svgImage.visible = false
-
-                    //cadInfo.visible = false
-                    BasicConfig.dragX=drop.x
-                    BasicConfig.dragY=drop.y
-                    console.log("drogX:"+BasicConfig.dragX+"drogY:"+BasicConfig.dragY)
-                    if (imageExts.indexOf(ext) !== -1) {
-                        // 图片文件
-                        image.source = filePath
-                        image.visible = true
-                        //canvas.visible=true
-                    } else if (svgExts.indexOf(ext) !== -1) {
-                        // SVG 文件
-                        svgImage.source = filePath
-                        svgImage.visible = true
-                    } else if (dxfExts.indexOf(ext) !== -1) {
-                        // DXF 文件 -> 调用 C++ 解析器
-                        var localPath = filePath.toString().replace(/^(file:\/{3})/g, "")
-                        dxfParser.loadFile(localPath)
-                        svgImage.visible = true
-                        // 显示等待提示（可选）
-                    } else {
-                        dxfParser.onDrogError("DrogEvent","不支持该文件格式")
-
-                    }
-
-                    drop.accept()
-                }
-            }
 
         }
         MouseArea{
@@ -319,7 +222,7 @@ Rectangle{
                     return
                 }
 
-                if(BasicConfig.currentTool !== "linePen")
+                if(BasicConfig.currentTool === "")
                     return
 
                 if(!BasicConfig.drawing)
@@ -332,38 +235,47 @@ Rectangle{
 
                     BasicConfig.drawing = true
                 }
-                else
+                else if(BasicConfig.currentTool==="linePen")
                 {
-                    canvas.drawLine(
-                        BasicConfig.startX,
-                        BasicConfig.startY,
-                        mouse.x,
-                        mouse.y,
-                        BasicConfig.penColor,
-                        BasicConfig.penWidth
-                    )
+                    entityManager.addLine(BasicConfig.startX,BasicConfig.startY,mouse.x,mouse.y,BasicConfig.penColor,BasicConfig.penWidth,true)
 
-                    BasicConfig.startX = mouse.x
-                    BasicConfig.startY = mouse.y
                 }
+                else if(BasicConfig.currentTool==="circlePen")
+                {
+                    var dx = mouse.x-BasicConfig.startX
+                    var dy = mouse.y-BasicConfig.startY
+                    entityManager.addCircle(mouse.x,mouse.y,Math.sqrt(dx * dx + dy * dy),BasicConfig.penColor,BasicConfig.penWidth,true)
 
+                }
+                BasicConfig.startX = mouse.x
+                BasicConfig.startY = mouse.y
                 canvas.requestPaint()
 
             }
             onPositionChanged: function(mouse)
             {
                 //console.log("drawing:"+BasicConfig.drawing+"currentTool:"+BasicConfig.currentTool)
-                if(BasicConfig.drawing&&BasicConfig.currentTool==="linePen")
+                if(BasicConfig.drawing)
                 {
                     // BasicConfig.offsetX-=mouse.x-lastX
                     // BasicConfig.offsetY-=mouse.y-lastY
                     // lastX=mouse.x
                     // lastY=mouse.y
+                    if(BasicConfig.currentTool==="linePen")
+                    {
+                        entityManager.addLine(BasicConfig.startX,BasicConfig.startY,mouse.x,mouse.y,BasicConfig.penColor,BasicConfig.penWidth,false);
+
+                    }
+                    else if(BasicConfig.currentTool==="circlePen")
+                    {
+                        var dx = mouse.x - BasicConfig.startX
+                        var dy = mouse.y-BasicConfig.startY
+                        entityManager.addCircle(mouse.x,mouse.y,Math.sqrt(dx * dx + dy * dy),BasicConfig.penColor,BasicConfig.penWidth,false)
+                    }
+
 
                     BasicConfig.previewX=mouse.x
                     BasicConfig.previewY=mouse.y
-
-
                     canvas.requestPaint()
                     leftCanvas.requestPaint()
                     rightCanvas.requestPaint()

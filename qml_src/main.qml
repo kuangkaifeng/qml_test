@@ -31,10 +31,11 @@ ApplicationWindow {
                 {
 
                     BasicConfig.currentTool="linePen"
+
                 }
-                else
+                else if(context==="椭圆工具")
                 {
-                    BasicConfig.currentTool="linePen"
+                    BasicConfig.currentTool="circlePen"
                 }
             }
             else if(actionType==="Toolclicked")
@@ -43,10 +44,11 @@ ApplicationWindow {
                 if(context==="直线工具")
                 {
                     BasicConfig.currentTool="linePen"
+
                 }
-                else
+                else if(context==="椭圆工具")
                 {
-                    BasicConfig.currentTool="linePen"
+                    BasicConfig.currentTool="circlePen"
                 }
             }
 
