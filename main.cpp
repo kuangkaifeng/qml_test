@@ -15,6 +15,8 @@
 #include "c++_src/entityProject/TextEntity.h"
 #include "c++_src/entityProject/ImageEntity.h"
 #include "c++_src/entityProject/Renderer.h"
+#include "c++_src/fileManager/DocumentManager.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -28,64 +30,19 @@ int main(int argc, char *argv[])
 
 
     EntityManager manager;
-
-    /*
-     * 创建直线
-     */
-    LineEntity *line=new LineEntity;
-    line->x1=100;
-    line->y1=100;
-    line->x2=400;
-    line->y2=200;
-    line->color="red";
-    manager.addEntity(line);
-
-    /*
-     * 创建矩形
-     */
-    RectEntity *rect=new RectEntity;
-    rect->setPos(200,200);
-    rect->width=150;
-    rect->height=100;
-    rect->color="yellow";
-    rect->fillColor="white";
-    manager.addEntity(rect);
-
-    /*
-     * 创建圆
-     */
-    CircleEntity *circle=new CircleEntity;
-    circle->setPos(500,200);
-    circle->radius=80;
-    circle->lineWidth=2;
-    manager.addEntity(circle);
-
-    /*
-     * 创建文本
-     */
-    TextEntity *text=new TextEntity;
-    text->setPos(800,400);
-    text->color="red";
-    text->text="Laser Software";
-
-    manager.addEntity(text);
-
-    ImageEntity*image=new ImageEntity;
-    image->source="D:/Code/LightScpult/LightSculpt_win/image/device.png";
-    image->height=400;
-    image->width=400;
-    manager.addEntity(image);
-
-
-
     Renderer renderer;
+    DocumentManager docManager;
+    docManager.newDocument();
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     engine.rootContext()->setContextProperty("entityManager",&manager);
     engine.rootContext()->setContextProperty("renderer",&renderer);
+    engine.rootContext()->setContextProperty("docManager",&docManager);
+
+
+
     DataHandler dataHandlerManger;
-    // 创建示例数据 - 表头: #、层、模式，速度/功率、输出、显示
 
     engine.rootContext()->setContextProperty("dataHandlerManger",&dataHandlerManger);
     qmlRegisterType<DxfParser>("com.yourcompany.dxfparser", 1, 0, "DxfParser");

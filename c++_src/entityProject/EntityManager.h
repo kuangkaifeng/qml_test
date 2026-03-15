@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QList>
 #include "Entity.h"
-
+#include "TextEntity.h"
 /*
  * 管理所有图元
  */
@@ -58,7 +58,29 @@ public:
      * @param flag
      */
     Q_INVOKABLE void addRect(int x,int y,int width,int height,QString color,int penWidth,bool flag);
-
+    /**
+     * @brief clearEntityManager 清除图元管理的所有图
+     */
+    Q_INVOKABLE void clearEntityManager();
+    /**
+     * @brief addText
+     * @param x
+     * @param y
+     * @param width
+     * @param height
+     * @param color
+     * @param penWidth
+     * @param flag
+     */
+    Q_INVOKABLE void addText(int x,int y,int width,int height,QString str,QString color,int penWidth,bool flag);
+    /**
+     * @brief getTextEntities
+     * @return
+     */
+    Q_INVOKABLE QList<TextEntity*> getTextEntities();
+signals:
+    //图元发生变化
+    void entityManagerChanged();
 
 private:
 

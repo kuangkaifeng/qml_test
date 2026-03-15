@@ -139,26 +139,19 @@ Rectangle{
         height: parent.height-rulerTop.height-rulerBottom.height
         color: "white"
         border.color: "#999"
-        // 创建 DXF 解析器（C++ 对象）
-        DxfParser {
-            id: dxfParser
-            onParseFinished: function(entities) {
-                console.log("DXF 解析完成，实体数量:", entities.length)
-                canvas.entities = entities
-                canvas.requestPaint()
-                // 隐藏其他显示元素
-                image.visible = false
-                svgImage.visible = false
-                //canvas.visible = true
 
-            }
-        }
 
         Canvas{
             id:canvas
             anchors.fill: parent
-            Component.onCompleted: requestPaint()
             property var entities: []   // 存储从 C++ 传来的图形数据
+            property  alias inputText:textEdit.text
+            property alias inputVisible: textEditor.visible
+            property alias inputTextColor:textEdit.color
+            property alias inputTextSize : textEdit.font.pixelSize
+            property alias inputTextX: textEditor.x
+            property alias inputTextY: textEditor.y
+            property alias inputTextZ: textEditor.z
             onPaint: {
                 var ctx=getContext("2d")
                 ctx.clearRect(0,0,width,height)
@@ -215,12 +208,60 @@ Rectangle{
                 }
 
                 renderer.render(ctx,entityManager.entities())
-
-
+                //画文本
 
 
             }
 
+
+            Connections{
+                target: entityManager
+                function onEntityManagerChanged()
+                {
+                    canvas.requestPaint()
+                    console.log("width:"+canvas.width+"height:"+canvas.height)
+                }
+            }
+            Component.onCompleted: {
+                requestPaint()
+                //docManager.setCanvasset(canvas.width,canvas.height)
+            }
+            Item {
+                id: textEditor
+
+                x: BasicConfig.startX
+                y: BasicConfig.startY
+                width: 100
+                height: 40
+                visible: false
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: "transparent"      // 背景透明
+                    border.width: 1
+                    border.color: "#4A90E2"   // 边框颜色
+                    radius: 2
+                }
+
+                TextEdit {
+                    id: textEdit
+                    anchors.fill: parent
+                    anchors.margins: 4
+
+                    font.pixelSize: BasicConfig.textFontSize
+                    color: BasicConfig.textColor
+                    text: ""
+
+                    focus: true
+                    wrapMode: TextEdit.WrapAnywhere
+                    Keys.onReturnPressed: {
+                        textEditor.visible=false
+                        entityManager.addText(textEditor.x+10,textEditor.y+20,textEditor.width,textEditor.height,textEdit.text,
+                                              textEdit.color,textEdit.font.pixelSize,true)
+                        canvas.requestPaint()
+                    }
+                }
+            }
 
 
         }
@@ -276,6 +317,31 @@ Rectangle{
                                           true)
                     BasicConfig.drawing = false
                 }
+                else if(BasicConfig.currentTool==="textPen")
+                {
+                    var x=mouse.x
+                    var y=mouse.y
+                    if(mouse.x>canvas.inputTextX&&mouse.y>canvas.inputTextY
+                            &&mouse.x<canvas.inputTextX+100&&mouse.y<canvas.inputTextY+40)
+                    {
+                        //点击了同一个
+
+                    }
+                    else
+                    {
+                        canvas.inputText=""
+                        canvas.inputTextColor="black"
+                        canvas.inputTextSize=17
+                        canvas.inputTextX=mouse.x
+                        canvas.inputTextY=mouse.y
+                        canvas.inputVisible=true
+                        canvas.inputTextZ=1
+                        textEdit.forceActiveFocus()
+                    }
+
+                    //entityManager.addText(BasicConfig.startX,BasicConfig.startY,"",100,40,BasicConfig.penColor,BasicConfig.penWidth,true)
+
+                }
 
                 BasicConfig.startX = mouse.x
                 BasicConfig.startY = mouse.y
@@ -330,28 +396,6 @@ Rectangle{
                 topCanvas.requestPaint()
                 bottomCanvas.requestPaint()
             }
-        }
-        // 显示图片（用于普通图像文件）
-        Image {
-            id: image
-            x:BasicConfig.dragX
-            y:BasicConfig.dragY
-            width: implicitWidth
-            height: implicitHeight
-            scale: 0.5
-            fillMode: Image.PreserveAspectCrop
-            visible: false   // 默认隐藏
-        }
-        // 显示 SVG 文件（Qt 6.8+ 使用 VectorImage，否则可用 Image）
-        VectorImage {
-            id: svgImage
-            x:BasicConfig.dragX
-            y:BasicConfig.dragY
-            width: implicitWidth
-            height: implicitHeight
-            visible: false
-            scale: 0.5
-            preferredRendererType: VectorImage.PreserveAspectCrop
         }
     }
 

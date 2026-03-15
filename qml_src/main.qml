@@ -43,7 +43,11 @@ ApplicationWindow {
                 }
                 else if(context==="新建文件")
                 {
-                    Dialog.accepted()
+                    entityManager.clearEntityManager()
+                }
+                else if(context==="保存")
+                {
+                    docManager.saveDocument()
                 }
             }
             else if(actionType==="Toolclicked")
@@ -61,6 +65,10 @@ ApplicationWindow {
                 else if(context==="矩形工具")
                 {
                     BasicConfig.currentTool="rectPen"
+                }
+                else if(context==="新建/编辑文本")
+                {
+                    BasicConfig.currentTool="textPen"
                 }
 
             }

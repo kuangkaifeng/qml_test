@@ -3,6 +3,9 @@
 #include "CircleEntity.h"
 #include "RectEntity.h"
 
+
+#include <QDebug>
+
 EntityManager::EntityManager(QObject *parent)
     :QObject(parent)
 {
@@ -108,6 +111,60 @@ void EntityManager::addRect(int x, int y, int width, int height, QString color, 
         }
 
     }
+}
+
+void EntityManager::clearEntityManager()
+{
+    m_entities.clear();
+
+    qDebug()<<"m_entities size:"<<m_entities.size();
+    emit entityManagerChanged();
+}
+
+void EntityManager::addText(int x, int y,int width,int height,QString str, QString color, int penWidth, bool flag)
+{
+    if(flag)
+    {
+        TextEntity *text=new TextEntity;
+        text->color=color;
+        text->width=width;
+        text->height=height;
+        text->text=str;
+        text->fontSize=penWidth;
+        text->setPos(x,y);
+
+        this->addEntity(text);
+    }
+    // else
+    // {
+    //     for(auto e:m_entities)
+    //     {
+    //         RectEntity* e1=qobject_cast<RectEntity*>(e);
+    //         if(e1)
+    //         {
+    //             if(e1->x()==x&&e1->y()==y)
+    //             {
+    //                 e1->width=width;
+    //                 e1->height=height;
+    //             }
+    //         }
+    //     }
+
+    // }
+}
+
+QList<TextEntity *> EntityManager::getTextEntities()
+{
+    QList<TextEntity *> result;
+    for(auto e:m_entities)
+    {
+        TextEntity* e1=qobject_cast<TextEntity*>(e);
+        if(e1)
+        {
+            result.append(e1);
+        }
+    }
+    return result;
 }
 
 

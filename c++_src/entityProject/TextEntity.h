@@ -18,6 +18,7 @@
 
 class TextEntity : public Entity
 {
+    Q_OBJECT
 public:
 
     /*
@@ -43,7 +44,10 @@ public:
      * 字体大小
      */
     int fontSize = 20;
-
+    //输入框的宽度
+    int width=100;
+    //输入框的高度
+    int height=40;
     /*
      * 字体名称
      */

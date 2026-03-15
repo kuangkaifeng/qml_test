@@ -30,6 +30,8 @@ set(LIBDXFRW_TARGET dxfrw)
 file(GLOB PROJECT_SRC
     ${CMAKE_SOURCE_DIR}/c++_src/entityProject/*.cpp
     ${CMAKE_SOURCE_DIR}/c++_src/entityProject/*.h
+    ${CMAKE_SOURCE_DIR}/c++_src/fileManager/*.cpp
+    ${CMAKE_SOURCE_DIR}/c++_src/fileManager/*.h
 )
 qt_add_executable(LightSculpt_win
     MANUAL_FINALIZATION
