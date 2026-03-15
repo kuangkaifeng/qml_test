@@ -208,7 +208,8 @@ Rectangle{
                 }
 
                 renderer.render(ctx,entityManager.entities())
-                //画文本
+
+
 
 
             }
@@ -317,6 +318,7 @@ Rectangle{
                                           true)
                     BasicConfig.drawing = false
                 }
+                //文本
                 else if(BasicConfig.currentTool==="textPen")
                 {
                     var x=mouse.x
@@ -342,6 +344,18 @@ Rectangle{
                     //entityManager.addText(BasicConfig.startX,BasicConfig.startY,"",100,40,BasicConfig.penColor,BasicConfig.penWidth,true)
 
                 }
+                //选中对象
+                else if(BasicConfig.currentTool==="select")
+                {
+                    var entity=entityManager.select(mouse.x,mouse.y)
+                    if(entity)
+                    {
+                        BasicConfig.dragging=true
+                        BasicConfig.dragStartX=mouse.x
+                        BasicConfig.dragStartY=mouse.y
+                    }
+
+                }
 
                 BasicConfig.startX = mouse.x
                 BasicConfig.startY = mouse.y
@@ -357,27 +371,44 @@ Rectangle{
                     // BasicConfig.offsetY-=mouse.y-lastY
                     // lastX=mouse.x
                     // lastY=mouse.y
-                    if(BasicConfig.currentTool==="linePen")
-                    {
-                        entityManager.addLine(BasicConfig.startX,BasicConfig.startY,mouse.x,mouse.y,BasicConfig.penColor,BasicConfig.penWidth,false);
+                    // if(BasicConfig.currentTool==="linePen")
+                    // {
+                    //     entityManager.addLine(BasicConfig.startX,BasicConfig.startY,mouse.x,mouse.y,BasicConfig.penColor,BasicConfig.penWidth,false);
 
-                    }
-                    else if(BasicConfig.currentTool==="circlePen")
-                    {
-                        var dx = mouse.x - BasicConfig.startX
-                        var dy = mouse.y-BasicConfig.startY
-                        entityManager.addCircle(mouse.x,mouse.y,Math.sqrt(dx * dx + dy * dy),BasicConfig.penColor,BasicConfig.penWidth,false)
-                    }
+                    // }
+                    // else if(BasicConfig.currentTool==="circlePen")
+                    // {
+                    //     var dx = mouse.x - BasicConfig.startX
+                    //     var dy = mouse.y-BasicConfig.startY
+                    //     entityManager.addCircle(mouse.x,mouse.y,Math.sqrt(dx * dx + dy * dy),BasicConfig.penColor,BasicConfig.penWidth,false)
+                    // }
 
 
-                    BasicConfig.previewX=mouse.x
-                    BasicConfig.previewY=mouse.y
-                    canvas.requestPaint()
-                    leftCanvas.requestPaint()
-                    rightCanvas.requestPaint()
-                    topCanvas.requestPaint()
-                    bottomCanvas.requestPaint()
+
                 }
+                if(BasicConfig.dragging)
+                {
+                    var ddx = mouse.x-BasicConfig.dragStartX
+                    var ddy = mouse.y-BasicConfig.dragStartY
+
+                    entityManager.moveSelected(ddx,ddy)
+
+                    BasicConfig.dragStartX = mouse.x
+                    BasicConfig.dragStartY = mouse.y
+
+
+                }
+                BasicConfig.previewX=mouse.x
+                BasicConfig.previewY=mouse.y
+                canvas.requestPaint()
+                leftCanvas.requestPaint()
+                rightCanvas.requestPaint()
+                topCanvas.requestPaint()
+                bottomCanvas.requestPaint()
+            }
+            onReleased: {
+                BasicConfig.dragging=false
+                canvas.requestPaint()
             }
 
             onWheel: function(wheel)

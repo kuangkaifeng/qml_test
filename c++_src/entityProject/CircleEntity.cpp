@@ -20,3 +20,17 @@ QRectF CircleEntity::boundingRect() const
                   radius*2,
                   radius*2);
 }
+
+bool CircleEntity::hitTest(double x,double y) const
+{
+    double dx=x-m_x;
+    double dy=y-m_y;
+
+    return sqrt(dx*dx+dy*dy)<=radius;
+}
+
+void CircleEntity::move(double dx, double dy)
+{
+    m_x+=dx;
+    m_y+=dy;
+}

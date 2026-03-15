@@ -93,6 +93,9 @@ QtObject{
     property real offsetX: 0                                                                                                //x轴偏移
     property real offsetY: 0                                                                                                //y轴偏移
     property bool drawing: false                                                                                            //受否画线模式
+    property bool dragging: false                                                                                           //是否选中模式
+    property real dragStartX: 0                                                                                             //拖拽的开始x轴
+    property real dragStartY: 0                                                                                             //拖拽的开始y轴
     property real startX : 0                                                                                                //直线的开始x位置
     property real startY: 0                                                                                                 //直线开始的y位置
     property real previewX: 0                                                                                               //当前鼠标x位置

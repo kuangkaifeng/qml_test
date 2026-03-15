@@ -70,6 +70,10 @@ ApplicationWindow {
                 {
                     BasicConfig.currentTool="textPen"
                 }
+                else if(context==="选择工具")
+                {
+                    BasicConfig.currentTool="select"
+                }
 
             }
 

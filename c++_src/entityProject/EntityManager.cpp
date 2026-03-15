@@ -11,7 +11,7 @@ EntityManager::EntityManager(QObject *parent)
 {
 }
 
-QList<Entity*> EntityManager::entities() const
+QList<Entity*> EntityManager::entities() 
 {
     return m_entities;
 }
@@ -32,7 +32,7 @@ void EntityManager::addLine(int x1, int y1, int x2, int y2, QString color, int w
         line->y2=y2;
         line->color=color;
 
-        this->addEntity(line);
+        m_entities.append(line);
     }
     else
     {
@@ -115,10 +115,10 @@ void EntityManager::addRect(int x, int y, int width, int height, QString color, 
 
 void EntityManager::clearEntityManager()
 {
+    qDeleteAll(m_entities); // Deletes all pointers in the list
     m_entities.clear();
-
-    qDebug()<<"m_entities size:"<<m_entities.size();
     emit entityManagerChanged();
+
 }
 
 void EntityManager::addText(int x, int y,int width,int height,QString str, QString color, int penWidth, bool flag)
@@ -167,5 +167,40 @@ QList<TextEntity *> EntityManager::getTextEntities()
     return result;
 }
 
+Entity *EntityManager::select(double x, double y)
+{
+    for(auto it = m_entities.rbegin(); it != m_entities.rend(); ++it)
+    {
+        if((*it)->hitTest(x,y))
+        {
+             clearSelection();
+
+            (*it)->setSelected(true);
+            return *it;
+        }
+    }
+
+    clearSelection();
+    return nullptr;
+}
+void EntityManager::moveSelected(double dx,double dy)
+{
+    for(auto e=m_entities.begin();e!=m_entities.end();e++)
+    {
+
+        if((*e)->selected())
+        {
+            (*e)->move(dx,dy);
+        }
+    }
+}
+
+void EntityManager::clearSelection()
+{
+    for(auto entity:m_entities)
+    {
+        entity->setSelected(false);
+    }
+}
 
 

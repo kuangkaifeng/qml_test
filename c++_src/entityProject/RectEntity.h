@@ -26,6 +26,10 @@ public:
     Entity::Type type() const override;
 
     QRectF boundingRect() const override;
+
+    bool hitTest(double x,double y)const override;
+
+    void move(double dx,double dy)override;
 };
 
 #endif

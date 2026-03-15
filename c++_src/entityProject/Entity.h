@@ -74,6 +74,7 @@ public:
      */
     bool selected() const;
 
+
     /*
      * 获取图元边界矩形
      * 用于：
@@ -82,9 +83,19 @@ public:
      * 碰撞检测
      */
     virtual QRectF boundingRect() const = 0;
-
-
-
+    /**
+     * @brief hitTest
+     * @param x
+     * @param y
+     * @return
+     */
+    virtual bool hitTest(double x,double y)const=0;
+    /**
+     * @brief move
+     * @param dx
+     * @param dy
+     */
+    virtual void move(double dx,double dy)=0;
 protected:
 
     Type m_type;     // 图元类型

@@ -49,6 +49,7 @@ target_link_libraries(LightSculpt_win
     PRIVATE Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Quick
     Qt${QT_VERSION_MAJOR}::Widgets
+    dbghelp
     ${LIBDXFRW_TARGET}
 )
 

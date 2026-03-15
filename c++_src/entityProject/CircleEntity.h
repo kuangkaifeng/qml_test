@@ -22,6 +22,9 @@ public:
 
     QRectF boundingRect() const override;
 
+    bool hitTest(double x,double y)const override;
+
+    void move(double dx,double dy)override;
     bool isEllipse=false;
 
     int lineWidth;

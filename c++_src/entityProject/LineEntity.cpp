@@ -23,3 +23,26 @@ QRectF LineEntity::boundingRect() const
 
     return QRectF(left,top,right-left,bottom-top);
 }
+
+bool LineEntity::hitTest(double x, double y) const
+{
+    double dx = x2-x1;
+    double dy = y2-y1;
+
+    double len = sqrt(dx*dx+dy*dy);
+
+    double distance =
+        fabs(dy*x - dx*y + x2*y1 - y2*x1)/len;
+
+    return distance < 5;
+}
+
+void LineEntity::move(double dx, double dy)
+{
+    x1+=dx;
+    y1+=dy;
+    x2+=dx;
+    y2+=dy;
+}
+
+

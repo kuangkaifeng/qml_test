@@ -33,6 +33,10 @@ public:
 
     QRectF boundingRect() const override;
 
+    bool hitTest(double x,double y)const override;
+
+    void move(double x,double y)override;
+
 public:
 
     /*

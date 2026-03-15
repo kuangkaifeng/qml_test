@@ -19,7 +19,7 @@ public:
     /*
      * 返回所有图元
      */
-    Q_INVOKABLE QList<Entity*> entities() const;
+    Q_INVOKABLE QList<Entity*> entities() ;
 
     /*
      * 添加图元
@@ -78,6 +78,19 @@ public:
      * @return
      */
     Q_INVOKABLE QList<TextEntity*> getTextEntities();
+
+    /**
+     * @brief select
+     * @param x
+     * @param y
+     * @return
+     */
+    Q_INVOKABLE Entity* select(double x,double y);
+
+    Q_INVOKABLE void moveSelected(double dx,double dy);
+
+    void clearSelection();
+
 signals:
     //图元发生变化
     void entityManagerChanged();

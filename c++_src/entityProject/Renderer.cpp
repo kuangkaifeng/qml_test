@@ -22,6 +22,8 @@ void Renderer::render(QJSValue ctx, QList<Entity*> entities)
 {
     for(auto e : entities)
     {
+        if(!e)
+            continue;
         switch(e->type())
         {
 

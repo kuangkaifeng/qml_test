@@ -30,3 +30,16 @@ QRectF TextEntity::boundingRect() const
     return QRectF(QPointF(pos.x(), pos.y()), size);
 
 }
+
+bool TextEntity::hitTest(double x, double y) const
+{
+    return x>=m_x && x<=m_x+width &&
+           y>=m_y && y<=m_y+height;
+}
+
+void TextEntity::move(double x, double y)
+{
+    m_x+=x;
+    m_y+=y;
+
+}
